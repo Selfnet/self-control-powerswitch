@@ -201,6 +201,35 @@ package type P</description>
 <text x="-5.3048" y="-3.6776" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 <text x="-5.6858" y="-6.1922" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 </package>
+<package name="SOIC-08LG">
+<description>&lt;b&gt;8-Lead SOIC (Narrow Body) Package Outline (LG)&lt;/b&gt;&lt;p&gt;
+4.9x3.9mm body, 1.75mm height (max), 1.27mm pitch&lt;br&gt;
+Source: www.supertex.com .. led_driver_ics_SG.pdf</description>
+<wire x1="-2.405" y1="1.925" x2="2.405" y2="1.925" width="0.1016" layer="21"/>
+<wire x1="2.405" y1="1.925" x2="2.405" y2="-1.425" width="0.1016" layer="21"/>
+<wire x1="2.405" y1="-1.425" x2="2.405" y2="-1.925" width="0.1016" layer="21"/>
+<wire x1="2.405" y1="-1.925" x2="-2.405" y2="-1.925" width="0.1016" layer="21"/>
+<wire x1="-2.405" y1="-1.925" x2="-2.405" y2="1.925" width="0.1016" layer="21"/>
+<wire x1="2.405" y1="-1.425" x2="-2.405" y2="-1.425" width="0.1016" layer="21"/>
+<smd name="1" x="-1.905" y="-2.675" dx="0.6" dy="1" layer="1"/>
+<smd name="2" x="-0.635" y="-2.675" dx="0.6" dy="1" layer="1"/>
+<smd name="3" x="0.635" y="-2.675" dx="0.6" dy="1" layer="1"/>
+<smd name="4" x="1.905" y="-2.675" dx="0.6" dy="1" layer="1"/>
+<smd name="5" x="1.905" y="2.675" dx="0.6" dy="1" layer="1" rot="R180"/>
+<smd name="6" x="0.635" y="2.675" dx="0.6" dy="1" layer="1" rot="R180"/>
+<smd name="7" x="-0.635" y="2.675" dx="0.6" dy="1" layer="1" rot="R180"/>
+<smd name="8" x="-1.905" y="2.675" dx="0.6" dy="1" layer="1" rot="R180"/>
+<text x="-2.54" y="-1.905" size="1.27" layer="25" rot="R90">&gt;NAME</text>
+<text x="3.81" y="-1.905" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
+<rectangle x1="-2.155" y1="-3.1" x2="-1.655" y2="-1.95" layer="51"/>
+<rectangle x1="-0.885" y1="-3.1" x2="-0.385" y2="-1.95" layer="51"/>
+<rectangle x1="0.385" y1="-3.1" x2="0.885" y2="-1.95" layer="51"/>
+<rectangle x1="1.655" y1="-3.1" x2="2.155" y2="-1.95" layer="51"/>
+<rectangle x1="1.655" y1="1.95" x2="2.155" y2="3.1" layer="51" rot="R180"/>
+<rectangle x1="0.385" y1="1.95" x2="0.885" y2="3.1" layer="51" rot="R180"/>
+<rectangle x1="-0.885" y1="1.95" x2="-0.385" y2="3.1" layer="51" rot="R180"/>
+<rectangle x1="-2.155" y1="1.95" x2="-1.655" y2="3.1" layer="51" rot="R180"/>
+</package>
 </packages>
 <symbols>
 <symbol name="72402">
@@ -288,12 +317,12 @@ package type P</description>
 <pin name="KL" x="5.08" y="0" visible="off" length="short" direction="pas" rot="R180"/>
 </symbol>
 <symbol name="2KLEMME">
-<pin name="1" x="-43.18" y="20.32" length="middle"/>
-<pin name="2" x="-43.18" y="15.24" length="middle"/>
-<wire x1="-40.64" y1="22.86" x2="-40.64" y2="12.7" width="0.254" layer="94"/>
-<wire x1="-40.64" y1="12.7" x2="-33.02" y2="12.7" width="0.254" layer="94"/>
-<wire x1="-33.02" y1="12.7" x2="-33.02" y2="22.86" width="0.254" layer="94"/>
-<wire x1="-33.02" y1="22.86" x2="-40.64" y2="22.86" width="0.254" layer="94"/>
+<pin name="1" x="-7.62" y="2.54" length="middle"/>
+<pin name="2" x="-7.62" y="-2.54" length="middle"/>
+<wire x1="-5.08" y1="5.08" x2="-5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-5.08" x2="2.54" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-5.08" x2="2.54" y2="5.08" width="0.254" layer="94"/>
+<wire x1="2.54" y1="5.08" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
 </symbol>
 <symbol name="3KLEMME">
 <pin name="1" x="-5.08" y="5.08" length="middle"/>
@@ -344,6 +373,21 @@ package type P</description>
 </gates>
 <devices>
 <device name="DIL8" package="DIL8">
+<connects>
+<connect gate="&gt;NAME" pin="CANH" pad="7"/>
+<connect gate="&gt;NAME" pin="CANL" pad="6"/>
+<connect gate="&gt;NAME" pin="GND" pad="2"/>
+<connect gate="&gt;NAME" pin="RS" pad="8"/>
+<connect gate="&gt;NAME" pin="RXD" pad="4"/>
+<connect gate="&gt;NAME" pin="TXD" pad="1"/>
+<connect gate="&gt;NAME" pin="VDD" pad="3"/>
+<connect gate="&gt;NAME" pin="VREF" pad="5"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="SOIC8" package="SOIC-08LG">
 <connects>
 <connect gate="&gt;NAME" pin="CANH" pad="7"/>
 <connect gate="&gt;NAME" pin="CANL" pad="6"/>
