@@ -1,0 +1,1 @@
+Add personal-parts.lbr path to eagle library paths to get lbr updates and to save changes in lbr directly to repo.
