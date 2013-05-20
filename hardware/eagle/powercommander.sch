@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -79,32 +79,6 @@
 <packages>
 </packages>
 <symbols>
-<symbol name="A3L-LOC">
-<wire x1="288.29" y1="3.81" x2="342.265" y2="3.81" width="0.1016" layer="94"/>
-<wire x1="342.265" y1="3.81" x2="373.38" y2="3.81" width="0.1016" layer="94"/>
-<wire x1="373.38" y1="3.81" x2="383.54" y2="3.81" width="0.1016" layer="94"/>
-<wire x1="383.54" y1="3.81" x2="383.54" y2="8.89" width="0.1016" layer="94"/>
-<wire x1="383.54" y1="8.89" x2="383.54" y2="13.97" width="0.1016" layer="94"/>
-<wire x1="383.54" y1="13.97" x2="383.54" y2="19.05" width="0.1016" layer="94"/>
-<wire x1="383.54" y1="19.05" x2="383.54" y2="24.13" width="0.1016" layer="94"/>
-<wire x1="288.29" y1="3.81" x2="288.29" y2="24.13" width="0.1016" layer="94"/>
-<wire x1="288.29" y1="24.13" x2="342.265" y2="24.13" width="0.1016" layer="94"/>
-<wire x1="342.265" y1="24.13" x2="383.54" y2="24.13" width="0.1016" layer="94"/>
-<wire x1="373.38" y1="3.81" x2="373.38" y2="8.89" width="0.1016" layer="94"/>
-<wire x1="373.38" y1="8.89" x2="383.54" y2="8.89" width="0.1016" layer="94"/>
-<wire x1="373.38" y1="8.89" x2="342.265" y2="8.89" width="0.1016" layer="94"/>
-<wire x1="342.265" y1="8.89" x2="342.265" y2="3.81" width="0.1016" layer="94"/>
-<wire x1="342.265" y1="8.89" x2="342.265" y2="13.97" width="0.1016" layer="94"/>
-<wire x1="342.265" y1="13.97" x2="383.54" y2="13.97" width="0.1016" layer="94"/>
-<wire x1="342.265" y1="13.97" x2="342.265" y2="19.05" width="0.1016" layer="94"/>
-<wire x1="342.265" y1="19.05" x2="383.54" y2="19.05" width="0.1016" layer="94"/>
-<wire x1="342.265" y1="19.05" x2="342.265" y2="24.13" width="0.1016" layer="94"/>
-<text x="344.17" y="15.24" size="2.54" layer="94" font="vector">&gt;DRAWING_NAME</text>
-<text x="344.17" y="10.16" size="2.286" layer="94" font="vector">&gt;LAST_DATE_TIME</text>
-<text x="357.505" y="5.08" size="2.54" layer="94" font="vector">&gt;SHEET</text>
-<text x="343.916" y="4.953" size="2.54" layer="94" font="vector">Sheet:</text>
-<frame x1="0" y1="0" x2="387.35" y2="260.35" columns="8" rows="5" layer="94"/>
-</symbol>
 <symbol name="DINA4_L">
 <frame x1="0" y1="0" x2="264.16" y2="180.34" columns="4" rows="4" layer="94" border-left="no" border-top="no" border-right="no" border-bottom="no"/>
 </symbol>
@@ -139,20 +113,6 @@
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="A3L-LOC" prefix="FRAME" uservalue="yes">
-<description>&lt;b&gt;FRAME&lt;/b&gt;&lt;p&gt;
-DIN A3, landscape with location and doc. field</description>
-<gates>
-<gate name="G$1" symbol="A3L-LOC" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="DINA4_L" prefix="FRAME" uservalue="yes">
 <description>&lt;b&gt;FRAME&lt;/b&gt;&lt;p&gt;
 DIN A4, landscape with extra doc field</description>
@@ -17598,7 +17558,6 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 </class>
 </classes>
 <parts>
-<part name="FRAME1" library="frames" deviceset="A3L-LOC" device=""/>
 <part name="EXT1" library="pinhead" deviceset="PINHD-2X13" device="" value="EXT1"/>
 <part name="IC1" library="personal-parts" deviceset="ULN2803" device="SO18-1"/>
 <part name="PHASE" library="personal-parts" deviceset="2KLEMME" device=""/>
@@ -17636,20 +17595,20 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="P+4" library="supply1" deviceset="+5V" device=""/>
 <part name="F2" library="fuse" deviceset="FUSE" device="SH35"/>
-<part name="D1" library="diode" deviceset="DIODE-" device="SOD323-W"/>
-<part name="D2" library="diode" deviceset="DIODE-" device="SOD323-W"/>
-<part name="D3" library="diode" deviceset="DIODE-" device="SOD323-W"/>
-<part name="D4" library="diode" deviceset="DIODE-" device="SOD323-W"/>
-<part name="D5" library="diode" deviceset="DIODE-" device="SOD323-W"/>
-<part name="D6" library="diode" deviceset="DIODE-" device="SOD323-W"/>
-<part name="D7" library="diode" deviceset="DIODE-" device="SOD323-W"/>
-<part name="D8" library="diode" deviceset="DIODE-" device="SOD323-W"/>
-<part name="D9" library="diode" deviceset="DIODE-" device="MELF-MLL41"/>
-<part name="EXT2-21-26" library="pinhead" deviceset="PINHD-2X3" device=""/>
-<part name="EXT2-1-4" library="pinhead" deviceset="PINHD-2X2" device=""/>
+<part name="D1" library="diode" deviceset="DIODE-" device="SOD323-W" value="1N4148"/>
+<part name="D2" library="diode" deviceset="DIODE-" device="SOD323-W" value="1N4148"/>
+<part name="D3" library="diode" deviceset="DIODE-" device="SOD323-W" value="1N4148"/>
+<part name="D4" library="diode" deviceset="DIODE-" device="SOD323-W" value="1N4148"/>
+<part name="D5" library="diode" deviceset="DIODE-" device="SOD323-W" value="1N4148"/>
+<part name="D6" library="diode" deviceset="DIODE-" device="SOD323-W" value="1N4148"/>
+<part name="D7" library="diode" deviceset="DIODE-" device="SOD323-W" value="1N4148"/>
+<part name="D8" library="diode" deviceset="DIODE-" device="SOD323-W" value="1N4148"/>
+<part name="D9" library="diode" deviceset="DIODE-" device="MELF-MLL41" value="1N4001"/>
+<part name="EXT2-21-26" library="pinhead" deviceset="PINHD-2X3" device="" value="3x2"/>
+<part name="EXT2-1-4" library="pinhead" deviceset="PINHD-2X2" device="" value="2x2"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
-<part name="TR1" library="personal-parts" deviceset="VC5,0-1" device=""/>
-<part name="FRAME2" library="frames" deviceset="DINA4_L" device=""/>
+<part name="TR1" library="personal-parts" deviceset="VC5,0-1" device="" value="VC5,0-1"/>
+<part name="FRAME2" library="frames" deviceset="DINA4_L" device="" value="01"/>
 </parts>
 <sheets>
 <sheet>
@@ -17680,7 +17639,6 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <wire x1="93.98" y1="81.28" x2="5.08" y2="81.28" width="0.3048" layer="94" style="longdash"/>
 </plain>
 <instances>
-<instance part="FRAME1" gate="G$1" x="195.58" y="266.7"/>
 <instance part="EXT1" gate="A" x="60.96" y="152.4"/>
 <instance part="IC1" gate="&gt;NAME" x="132.08" y="147.32" rot="MR180"/>
 <instance part="PHASE" gate="G$1" x="25.4" y="20.32" rot="R180"/>
