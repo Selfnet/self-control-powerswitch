@@ -17648,6 +17648,7 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <part name="D9" library="diode" deviceset="DIODE-" device="MELF-MLL41"/>
 <part name="EXT2-21-26" library="pinhead" deviceset="PINHD-2X3" device=""/>
 <part name="EXT2-1-4" library="pinhead" deviceset="PINHD-2X2" device=""/>
+<part name="GND1" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -17714,6 +17715,7 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <instance part="D9" gate="G$1" x="157.48" y="195.58" rot="R180"/>
 <instance part="EXT2-21-26" gate="A" x="22.86" y="99.06"/>
 <instance part="EXT2-1-4" gate="A" x="25.4" y="83.82"/>
+<instance part="GND1" gate="1" x="10.16" y="91.44"/>
 </instances>
 <busses>
 </busses>
@@ -17882,6 +17884,12 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <pinref part="EXT1" gate="A" pin="6"/>
 <pinref part="GND6" gate="1" pin="GND"/>
 <wire x1="78.74" y1="139.7" x2="81.28" y2="139.7" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="EXT2-21-26" gate="A" pin="5"/>
+<pinref part="GND1" gate="1" pin="GND"/>
+<wire x1="20.32" y1="96.52" x2="10.16" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="10.16" y1="96.52" x2="10.16" y2="93.98" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="A1" class="0">
