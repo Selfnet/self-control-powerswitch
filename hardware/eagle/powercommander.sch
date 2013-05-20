@@ -1025,6 +1025,94 @@ Source: www.supertex.com .. led_driver_ics_SG.pdf</description>
 <rectangle x1="-0.885" y1="1.95" x2="-0.385" y2="3.1" layer="51" rot="R180"/>
 <rectangle x1="-2.155" y1="1.95" x2="-1.655" y2="3.1" layer="51" rot="R180"/>
 </package>
+<package name="VC5,0-1">
+<description>&lt;b&gt;TRANSFORMER&lt;/b&gt;&lt;p&gt;
+1 primary winding, 2 secondary windings, temp. protection fuse, mounting holes</description>
+<wire x1="-8.89" y1="10.16" x2="-7.62" y2="10.16" width="0.254" layer="21"/>
+<wire x1="-3.175" y1="10.16" x2="-3.175" y2="-10.16" width="0.254" layer="21"/>
+<wire x1="-1.27" y1="10.16" x2="-1.27" y2="-10.16" width="0.254" layer="21"/>
+<wire x1="-1.27" y1="-10.16" x2="-3.175" y2="-10.16" width="0.254" layer="21"/>
+<wire x1="0" y1="10.16" x2="0" y2="-10.16" width="0.254" layer="21"/>
+<wire x1="-3.175" y1="10.16" x2="-1.27" y2="10.16" width="0.254" layer="21"/>
+<wire x1="-3.175" y1="-10.16" x2="-8.89" y2="-10.16" width="0.254" layer="21"/>
+<wire x1="1.27" y1="6.35" x2="1.27" y2="-6.35" width="0.254" layer="21"/>
+<wire x1="1.27" y1="-6.35" x2="3.175" y2="-6.35" width="0.254" layer="21"/>
+<wire x1="1.27" y1="6.35" x2="3.175" y2="6.35" width="0.254" layer="21"/>
+<wire x1="3.175" y1="-6.35" x2="3.175" y2="6.35" width="0.254" layer="21"/>
+<wire x1="3.175" y1="-6.35" x2="8.89" y2="-6.35" width="0.254" layer="21"/>
+<wire x1="3.175" y1="6.35" x2="8.89" y2="6.35" width="0.254" layer="21"/>
+<wire x1="-7.62" y1="10.16" x2="-7.62" y2="9.525" width="0.254" layer="21"/>
+<wire x1="-7.62" y1="9.525" x2="-5.08" y2="9.525" width="0.254" layer="21"/>
+<wire x1="-5.08" y1="9.525" x2="-5.08" y2="10.16" width="0.254" layer="21"/>
+<wire x1="-5.08" y1="10.16" x2="-3.175" y2="10.16" width="0.254" layer="21"/>
+<wire x1="-5.08" y1="10.16" x2="-5.08" y2="10.795" width="0.254" layer="21"/>
+<wire x1="-5.08" y1="10.795" x2="-7.62" y2="10.795" width="0.254" layer="21"/>
+<wire x1="-7.62" y1="10.795" x2="-7.62" y2="10.16" width="0.254" layer="21"/>
+<wire x1="-8.255" y1="8.89" x2="-7.62" y2="8.89" width="0.254" layer="21"/>
+<wire x1="-7.62" y1="8.89" x2="-5.08" y2="11.43" width="0.254" layer="21"/>
+<wire x1="-10.033" y1="5.588" x2="-9.525" y2="5.588" width="0.254" layer="21" curve="-180"/>
+<wire x1="-9.525" y1="4.826" x2="-7.493" y2="4.826" width="0.254" layer="21" curve="180"/>
+<wire x1="-7.493" y1="4.826" x2="-7.493" y2="6.604" width="0.254" layer="21"/>
+<wire x1="-9.525" y1="4.826" x2="-9.525" y2="5.588" width="0.254" layer="21"/>
+<wire x1="-8.255" y1="5.842" x2="-6.985" y2="5.842" width="0.254" layer="21"/>
+<wire x1="-8.255" y1="5.842" x2="-7.493" y2="6.604" width="0.254" layer="21" curve="-270"/>
+<wire x1="-6.985" y1="5.842" x2="-6.8054" y2="5.4084" width="0.254" layer="21" curve="-135.000677"/>
+<wire x1="-5.207" y1="6.35" x2="-5.207" y2="7.874" width="0.254" layer="21"/>
+<wire x1="-6.223" y1="6.35" x2="-6.223" y2="7.874" width="0.254" layer="21"/>
+<wire x1="-6.223" y1="7.874" x2="-6.477" y2="6.858" width="0.254" layer="21"/>
+<wire x1="-6.477" y1="6.858" x2="-5.969" y2="6.858" width="0.254" layer="21"/>
+<wire x1="-5.969" y1="6.858" x2="-6.223" y2="7.874" width="0.254" layer="21"/>
+<wire x1="-5.207" y1="7.874" x2="-5.461" y2="6.858" width="0.254" layer="21"/>
+<wire x1="-5.461" y1="6.858" x2="-4.953" y2="6.858" width="0.254" layer="21"/>
+<wire x1="-4.953" y1="6.858" x2="-5.207" y2="7.874" width="0.254" layer="21"/>
+<wire x1="-18.542" y1="-22.098" x2="-18.542" y2="22.098" width="0.254" layer="21"/>
+<wire x1="-13.589" y1="-10.922" x2="-13.589" y2="10.922" width="0.254" layer="21"/>
+<wire x1="-13.589" y1="15.113" x2="-13.589" y2="17.018" width="0.254" layer="51"/>
+<wire x1="-13.589" y1="17.018" x2="-11.684" y2="17.018" width="0.254" layer="51"/>
+<wire x1="-11.684" y1="17.018" x2="11.684" y2="17.018" width="0.254" layer="21"/>
+<wire x1="18.542" y1="22.098" x2="-18.542" y2="22.098" width="0.254" layer="21"/>
+<wire x1="11.684" y1="17.018" x2="13.589" y2="17.018" width="0.254" layer="51"/>
+<wire x1="13.589" y1="15.113" x2="13.589" y2="17.018" width="0.254" layer="51"/>
+<wire x1="13.589" y1="5.842" x2="13.589" y2="-5.842" width="0.254" layer="21"/>
+<wire x1="-13.589" y1="-17.018" x2="-13.589" y2="-15.113" width="0.254" layer="51"/>
+<wire x1="-13.589" y1="-17.018" x2="-11.684" y2="-17.018" width="0.254" layer="51"/>
+<wire x1="11.684" y1="-17.018" x2="-11.684" y2="-17.018" width="0.254" layer="21"/>
+<wire x1="11.684" y1="-17.018" x2="13.589" y2="-17.018" width="0.254" layer="51"/>
+<wire x1="13.589" y1="-17.018" x2="13.589" y2="-15.113" width="0.254" layer="51"/>
+<wire x1="-18.542" y1="-22.098" x2="18.542" y2="-22.098" width="0.254" layer="21"/>
+<wire x1="18.542" y1="22.098" x2="18.542" y2="-22.098" width="0.254" layer="21"/>
+<wire x1="-13.589" y1="-14.097" x2="-13.589" y2="-10.922" width="0.254" layer="51"/>
+<wire x1="-13.589" y1="-15.113" x2="-13.589" y2="-14.097" width="0.254" layer="21"/>
+<wire x1="-13.589" y1="10.922" x2="-13.589" y2="14.097" width="0.254" layer="51"/>
+<wire x1="-13.589" y1="14.097" x2="-13.589" y2="15.113" width="0.254" layer="21"/>
+<wire x1="13.589" y1="10.922" x2="13.589" y2="14.097" width="0.254" layer="51"/>
+<wire x1="13.589" y1="15.24" x2="13.589" y2="14.097" width="0.254" layer="21"/>
+<wire x1="13.589" y1="5.842" x2="13.589" y2="9.017" width="0.254" layer="51"/>
+<wire x1="13.589" y1="10.922" x2="13.589" y2="9.017" width="0.254" layer="21"/>
+<wire x1="13.589" y1="-9.017" x2="13.589" y2="-5.842" width="0.254" layer="51"/>
+<wire x1="13.589" y1="-14.097" x2="13.589" y2="-10.922" width="0.254" layer="51"/>
+<wire x1="13.589" y1="-15.113" x2="13.589" y2="-14.097" width="0.254" layer="21"/>
+<wire x1="13.589" y1="-10.922" x2="13.589" y2="-9.017" width="0.254" layer="21"/>
+<circle x="-4.445" y="-9.271" radius="0.254" width="0.254" layer="21"/>
+<circle x="-9.525" y="-10.16" radius="0.635" width="0.254" layer="21"/>
+<circle x="-9.525" y="10.16" radius="0.635" width="0.254" layer="21"/>
+<circle x="4.445" y="-5.461" radius="0.254" width="0.254" layer="21"/>
+<circle x="9.525" y="6.35" radius="0.635" width="0.254" layer="21"/>
+<circle x="9.525" y="-6.35" radius="0.635" width="0.254" layer="21"/>
+<pad name="2" x="-12.5222" y="-12.4968" drill="1.397" diameter="3.175" shape="octagon"/>
+<pad name="1" x="-12.5222" y="12.4968" drill="1.397" diameter="3.175" shape="octagon"/>
+<pad name="5" x="12.5222" y="7.493" drill="1.397" diameter="3.175" shape="octagon"/>
+<pad name="4" x="12.5222" y="-7.493" drill="1.397" diameter="3.175" shape="octagon"/>
+<pad name="6" x="12.5222" y="12.4968" drill="1.397" diameter="3.175" shape="octagon"/>
+<pad name="3" x="12.5222" y="-12.4968" drill="1.397" diameter="3.175" shape="octagon"/>
+<text x="-18.415" y="22.86" size="2.54" layer="25" ratio="10">&gt;NAME</text>
+<text x="-7.62" y="-15.24" size="2.54" layer="27" ratio="10">&gt;VALUE</text>
+<text x="-8.255" y="18.415" size="2.54" layer="21" ratio="10">VC5,0-1</text>
+<text x="6.35" y="0" size="1.778" layer="21" ratio="10">S1</text>
+<text x="-10.795" y="-7.62" size="1.778" layer="21" ratio="10">P1</text>
+<rectangle x1="-3.175" y1="-10.16" x2="-1.27" y2="10.16" layer="21"/>
+<rectangle x1="1.27" y1="-6.35" x2="3.175" y2="6.35" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="ULN2803">
@@ -1085,6 +1173,45 @@ Source: www.supertex.com .. led_driver_ics_SG.pdf</description>
 <wire x1="-2.54" y1="-7.62" x2="5.08" y2="-7.62" width="0.254" layer="94"/>
 <wire x1="5.08" y1="-7.62" x2="5.08" y2="7.62" width="0.254" layer="94"/>
 <wire x1="5.08" y1="7.62" x2="-2.54" y2="7.62" width="0.254" layer="94"/>
+</symbol>
+<symbol name="VC5,0-1">
+<wire x1="-5.08" y1="5.08" x2="-2.54" y2="5.08" width="0.1524" layer="94"/>
+<wire x1="1.27" y1="5.715" x2="1.27" y2="-8.255" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-7.62" x2="-5.08" y2="-7.62" width="0.1524" layer="94"/>
+<wire x1="-7.62" y1="5.715" x2="-7.62" y2="4.445" width="0.1524" layer="94"/>
+<wire x1="-7.62" y1="4.445" x2="-5.08" y2="4.445" width="0.1524" layer="94"/>
+<wire x1="-5.08" y1="4.445" x2="-5.08" y2="5.08" width="0.1524" layer="94"/>
+<wire x1="-5.08" y1="5.08" x2="-5.08" y2="5.715" width="0.1524" layer="94"/>
+<wire x1="-5.08" y1="5.715" x2="-7.62" y2="5.715" width="0.1524" layer="94"/>
+<wire x1="-8.255" y1="3.81" x2="-7.62" y2="3.81" width="0.1524" layer="94"/>
+<wire x1="-7.62" y1="3.81" x2="-5.08" y2="6.35" width="0.1524" layer="94"/>
+<wire x1="-5.08" y1="1.905" x2="-5.08" y2="3.4798" width="0.1524" layer="94"/>
+<wire x1="-4.1148" y1="1.905" x2="-4.1148" y2="3.4798" width="0.1524" layer="94"/>
+<wire x1="-5.08" y1="3.4798" x2="-5.3848" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="-5.3848" y1="2.54" x2="-4.7498" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="-4.1148" y1="3.4798" x2="-4.445" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="-4.445" y1="2.54" x2="-3.7846" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="-3.7846" y1="2.54" x2="-4.1148" y2="3.4798" width="0.1524" layer="94"/>
+<wire x1="-4.7498" y1="2.54" x2="-5.08" y2="3.4798" width="0.1524" layer="94"/>
+<wire x1="-7.62" y1="0.762" x2="-6.096" y2="0.762" width="0.1524" layer="94" curve="180"/>
+<wire x1="-8.128" y1="1.016" x2="-7.62" y2="1.016" width="0.1524" layer="94" curve="-180" cap="flat"/>
+<wire x1="-7.62" y1="0.762" x2="-7.62" y2="1.016" width="0.1524" layer="94"/>
+<wire x1="-6.096" y1="0.762" x2="-6.096" y2="2.032" width="0.1524" layer="94"/>
+<wire x1="-6.604" y1="1.524" x2="-6.096" y2="2.032" width="0.1524" layer="94" curve="-270"/>
+<wire x1="-5.842" y1="1.524" x2="-5.7284" y2="1.3402" width="0.1524" layer="94" curve="-116.562636" cap="flat"/>
+<wire x1="-6.604" y1="1.524" x2="-5.842" y2="1.524" width="0.1524" layer="94"/>
+<circle x="-3.302" y="-6.985" radius="0.127" width="0.3048" layer="94"/>
+<circle x="6.096" y="-4.445" radius="0.127" width="0.3048" layer="94"/>
+<text x="-2.54" y="6.35" size="1.778" layer="95">&gt;NAME</text>
+<text x="-2.54" y="-10.795" size="1.778" layer="96">&gt;VALUE</text>
+<text x="-3.683" y="-2.794" size="1.27" layer="94" rot="R90">PRI</text>
+<text x="6.985" y="-3.175" size="1.27" layer="94" rot="R90">S1</text>
+<rectangle x1="-2.794" y1="-7.62" x2="-0.254" y2="5.08" layer="94"/>
+<rectangle x1="2.794" y1="-5.08" x2="5.334" y2="2.54" layer="94"/>
+<pin name="1" x="-10.16" y="5.08" visible="pad" length="short" direction="pas" swaplevel="1"/>
+<pin name="2" x="-10.16" y="-7.62" visible="pad" length="middle" direction="pas" swaplevel="1"/>
+<pin name="3" x="10.16" y="-5.08" visible="pad" length="middle" direction="pas" swaplevel="3" rot="R180"/>
+<pin name="4" x="10.16" y="2.54" visible="pad" length="middle" direction="pas" swaplevel="3" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -1183,6 +1310,27 @@ Source: www.supertex.com .. led_driver_ics_SG.pdf</description>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
 <connect gate="G$1" pin="3" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="VC5,0-1" prefix="TR" uservalue="yes">
+<description>&lt;b&gt;TRANSFORMER&lt;/b&gt;&lt;p&gt;
+1 primary winding, temp. protection fuse, 2 secondary windings/ mounting hole&lt;p&gt;
+BLOCK</description>
+<gates>
+<gate name="1" symbol="VC5,0-1" x="-2.54" y="0"/>
+</gates>
+<devices>
+<device name="" package="VC5,0-1">
+<connects>
+<connect gate="1" pin="1" pad="1"/>
+<connect gate="1" pin="2" pad="2"/>
+<connect gate="1" pin="3" pad="5"/>
+<connect gate="1" pin="4" pad="4"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -1514,200 +1662,6 @@ General Instrument, Semikron, Diotec, Fagor&lt;p&gt;
 <connect gate="1" pin="-" pad="-"/>
 <connect gate="1" pin="AC1" pad="AC1"/>
 <connect gate="1" pin="AC2" pad="AC2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
-<library name="trafo">
-<description>&lt;b&gt;Transformers&lt;/b&gt;&lt;p&gt;
-Based on the following previous libraries:
-&lt;ul&gt;
-&lt;li&gt;trafo-b.lbr: transformers from BLOCK
-&lt;li&gt;trafo-e.lbr: transformers from ERA
-&lt;li&gt;trafo-r.lbr: ring cores
-&lt;/ul&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="PT04,5-2">
-<description>&lt;b&gt;TRANSFORMER&lt;/b&gt;&lt;p&gt;
-1 primary winding, 2 secondary windings, temp. protection fuse, mounting holes</description>
-<wire x1="-8.89" y1="10.16" x2="-7.62" y2="10.16" width="0.254" layer="21"/>
-<wire x1="-3.175" y1="10.16" x2="-3.175" y2="-10.16" width="0.254" layer="21"/>
-<wire x1="-1.27" y1="10.16" x2="-1.27" y2="-10.16" width="0.254" layer="21"/>
-<wire x1="-1.27" y1="-10.16" x2="-3.175" y2="-10.16" width="0.254" layer="21"/>
-<wire x1="0" y1="10.16" x2="0" y2="-10.16" width="0.254" layer="21"/>
-<wire x1="1.27" y1="10.16" x2="1.27" y2="5.08" width="0.254" layer="21"/>
-<wire x1="1.27" y1="5.08" x2="3.175" y2="5.08" width="0.254" layer="21"/>
-<wire x1="1.27" y1="10.16" x2="3.175" y2="10.16" width="0.254" layer="21"/>
-<wire x1="3.175" y1="5.08" x2="3.175" y2="10.16" width="0.254" layer="21"/>
-<wire x1="3.175" y1="5.08" x2="8.89" y2="5.08" width="0.254" layer="21"/>
-<wire x1="3.175" y1="10.16" x2="8.89" y2="10.16" width="0.254" layer="21"/>
-<wire x1="-3.175" y1="10.16" x2="-1.27" y2="10.16" width="0.254" layer="21"/>
-<wire x1="-3.175" y1="-10.16" x2="-8.89" y2="-10.16" width="0.254" layer="21"/>
-<wire x1="1.27" y1="-5.08" x2="1.27" y2="-10.16" width="0.254" layer="21"/>
-<wire x1="1.27" y1="-10.16" x2="3.175" y2="-10.16" width="0.254" layer="21"/>
-<wire x1="1.27" y1="-5.08" x2="3.175" y2="-5.08" width="0.254" layer="21"/>
-<wire x1="3.175" y1="-10.16" x2="3.175" y2="-5.08" width="0.254" layer="21"/>
-<wire x1="3.175" y1="-10.16" x2="8.89" y2="-10.16" width="0.254" layer="21"/>
-<wire x1="3.175" y1="-5.08" x2="8.89" y2="-5.08" width="0.254" layer="21"/>
-<wire x1="-7.62" y1="10.16" x2="-7.62" y2="9.525" width="0.254" layer="21"/>
-<wire x1="-7.62" y1="9.525" x2="-5.08" y2="9.525" width="0.254" layer="21"/>
-<wire x1="-5.08" y1="9.525" x2="-5.08" y2="10.16" width="0.254" layer="21"/>
-<wire x1="-5.08" y1="10.16" x2="-3.175" y2="10.16" width="0.254" layer="21"/>
-<wire x1="-5.08" y1="10.16" x2="-5.08" y2="10.795" width="0.254" layer="21"/>
-<wire x1="-5.08" y1="10.795" x2="-7.62" y2="10.795" width="0.254" layer="21"/>
-<wire x1="-7.62" y1="10.795" x2="-7.62" y2="10.16" width="0.254" layer="21"/>
-<wire x1="-8.255" y1="8.89" x2="-7.62" y2="8.89" width="0.254" layer="21"/>
-<wire x1="-7.62" y1="8.89" x2="-5.08" y2="11.43" width="0.254" layer="21"/>
-<wire x1="-10.033" y1="5.588" x2="-9.525" y2="5.588" width="0.254" layer="21" curve="-180"/>
-<wire x1="-9.525" y1="4.826" x2="-7.493" y2="4.826" width="0.254" layer="21" curve="180"/>
-<wire x1="-7.493" y1="4.826" x2="-7.493" y2="6.604" width="0.254" layer="21"/>
-<wire x1="-9.525" y1="4.826" x2="-9.525" y2="5.588" width="0.254" layer="21"/>
-<wire x1="-8.255" y1="5.842" x2="-6.985" y2="5.842" width="0.254" layer="21"/>
-<wire x1="-8.255" y1="5.842" x2="-7.493" y2="6.604" width="0.254" layer="21" curve="-270"/>
-<wire x1="-6.985" y1="5.842" x2="-6.8054" y2="5.4084" width="0.254" layer="21" curve="-135.000677"/>
-<wire x1="-5.207" y1="6.35" x2="-5.207" y2="7.874" width="0.254" layer="21"/>
-<wire x1="-6.223" y1="6.35" x2="-6.223" y2="7.874" width="0.254" layer="21"/>
-<wire x1="-6.223" y1="7.874" x2="-6.477" y2="6.858" width="0.254" layer="21"/>
-<wire x1="-6.477" y1="6.858" x2="-5.969" y2="6.858" width="0.254" layer="21"/>
-<wire x1="-5.969" y1="6.858" x2="-6.223" y2="7.874" width="0.254" layer="21"/>
-<wire x1="-5.207" y1="7.874" x2="-5.461" y2="6.858" width="0.254" layer="21"/>
-<wire x1="-5.461" y1="6.858" x2="-4.953" y2="6.858" width="0.254" layer="21"/>
-<wire x1="-4.953" y1="6.858" x2="-5.207" y2="7.874" width="0.254" layer="21"/>
-<wire x1="-18.542" y1="-22.098" x2="-18.542" y2="22.098" width="0.254" layer="21"/>
-<wire x1="-13.589" y1="-10.922" x2="-13.589" y2="10.922" width="0.254" layer="21"/>
-<wire x1="-13.589" y1="15.113" x2="-13.589" y2="17.018" width="0.254" layer="51"/>
-<wire x1="-13.589" y1="17.018" x2="-11.684" y2="17.018" width="0.254" layer="51"/>
-<wire x1="-11.684" y1="17.018" x2="11.684" y2="17.018" width="0.254" layer="21"/>
-<wire x1="18.542" y1="22.098" x2="-18.542" y2="22.098" width="0.254" layer="21"/>
-<wire x1="11.684" y1="17.018" x2="13.589" y2="17.018" width="0.254" layer="51"/>
-<wire x1="13.589" y1="15.113" x2="13.589" y2="17.018" width="0.254" layer="51"/>
-<wire x1="13.589" y1="5.842" x2="13.589" y2="-5.842" width="0.254" layer="21"/>
-<wire x1="-13.589" y1="-17.018" x2="-13.589" y2="-15.113" width="0.254" layer="51"/>
-<wire x1="-13.589" y1="-17.018" x2="-11.684" y2="-17.018" width="0.254" layer="51"/>
-<wire x1="11.684" y1="-17.018" x2="-11.684" y2="-17.018" width="0.254" layer="21"/>
-<wire x1="11.684" y1="-17.018" x2="13.589" y2="-17.018" width="0.254" layer="51"/>
-<wire x1="13.589" y1="-17.018" x2="13.589" y2="-15.113" width="0.254" layer="51"/>
-<wire x1="-18.542" y1="-22.098" x2="18.542" y2="-22.098" width="0.254" layer="21"/>
-<wire x1="18.542" y1="22.098" x2="18.542" y2="-22.098" width="0.254" layer="21"/>
-<wire x1="-13.589" y1="-14.097" x2="-13.589" y2="-10.922" width="0.254" layer="51"/>
-<wire x1="-13.589" y1="-15.113" x2="-13.589" y2="-14.097" width="0.254" layer="21"/>
-<wire x1="-13.589" y1="10.922" x2="-13.589" y2="14.097" width="0.254" layer="51"/>
-<wire x1="-13.589" y1="14.097" x2="-13.589" y2="15.113" width="0.254" layer="21"/>
-<wire x1="13.589" y1="10.922" x2="13.589" y2="14.097" width="0.254" layer="51"/>
-<wire x1="13.589" y1="15.24" x2="13.589" y2="14.097" width="0.254" layer="21"/>
-<wire x1="13.589" y1="5.842" x2="13.589" y2="9.017" width="0.254" layer="51"/>
-<wire x1="13.589" y1="10.922" x2="13.589" y2="9.017" width="0.254" layer="21"/>
-<wire x1="13.589" y1="-9.017" x2="13.589" y2="-5.842" width="0.254" layer="51"/>
-<wire x1="13.589" y1="-14.097" x2="13.589" y2="-10.922" width="0.254" layer="51"/>
-<wire x1="13.589" y1="-15.113" x2="13.589" y2="-14.097" width="0.254" layer="21"/>
-<wire x1="13.589" y1="-10.922" x2="13.589" y2="-9.017" width="0.254" layer="21"/>
-<circle x="-4.445" y="-9.271" radius="0.254" width="0.254" layer="21"/>
-<circle x="4.445" y="5.969" radius="0.254" width="0.254" layer="21"/>
-<circle x="-9.525" y="-10.16" radius="0.635" width="0.254" layer="21"/>
-<circle x="-9.525" y="10.16" radius="0.635" width="0.254" layer="21"/>
-<circle x="9.525" y="10.16" radius="0.635" width="0.254" layer="21"/>
-<circle x="9.525" y="5.08" radius="0.635" width="0.254" layer="21"/>
-<circle x="4.445" y="-9.271" radius="0.254" width="0.254" layer="21"/>
-<circle x="9.525" y="-5.08" radius="0.635" width="0.254" layer="21"/>
-<circle x="9.525" y="-10.16" radius="0.635" width="0.254" layer="21"/>
-<circle x="-13.9954" y="-17.5006" radius="2.921" width="1.016" layer="42"/>
-<circle x="-13.9954" y="-17.5006" radius="2.921" width="1.016" layer="43"/>
-<circle x="-13.9954" y="17.5006" radius="2.921" width="1.016" layer="42"/>
-<circle x="-13.9954" y="17.5006" radius="2.921" width="1.016" layer="43"/>
-<circle x="13.9954" y="17.5006" radius="2.921" width="1.016" layer="42"/>
-<circle x="13.9954" y="17.5006" radius="2.921" width="1.016" layer="43"/>
-<circle x="13.9954" y="-17.5006" radius="2.921" width="1.016" layer="42"/>
-<circle x="13.9954" y="-17.5006" radius="2.921" width="1.016" layer="43"/>
-<pad name="2" x="-12.5222" y="-12.4968" drill="1.397" diameter="3.175" shape="octagon"/>
-<pad name="1" x="-12.5222" y="12.4968" drill="1.397" diameter="3.175" shape="octagon"/>
-<pad name="5" x="12.5222" y="7.493" drill="1.397" diameter="3.175" shape="octagon"/>
-<pad name="4" x="12.5222" y="-7.493" drill="1.397" diameter="3.175" shape="octagon"/>
-<pad name="6" x="12.5222" y="12.4968" drill="1.397" diameter="3.175" shape="octagon"/>
-<pad name="3" x="12.5222" y="-12.4968" drill="1.397" diameter="3.175" shape="octagon"/>
-<text x="-18.415" y="22.86" size="2.54" layer="25" ratio="10">&gt;NAME</text>
-<text x="-7.62" y="-15.24" size="2.54" layer="27" ratio="10">&gt;VALUE</text>
-<text x="-8.255" y="18.415" size="2.54" layer="21" ratio="10">PT4,5-2</text>
-<text x="6.35" y="-8.89" size="1.778" layer="21" ratio="10">S1</text>
-<text x="-10.795" y="-7.62" size="1.778" layer="21" ratio="10">P1</text>
-<text x="6.35" y="6.35" size="1.778" layer="21" ratio="10">S2</text>
-<rectangle x1="-3.175" y1="-10.16" x2="-1.27" y2="10.16" layer="21"/>
-<rectangle x1="1.27" y1="-10.16" x2="3.175" y2="-5.08" layer="21"/>
-<rectangle x1="1.27" y1="5.08" x2="3.175" y2="10.16" layer="21"/>
-<hole x="-13.9954" y="-17.5006" drill="4.1148"/>
-<hole x="-13.9954" y="17.5006" drill="4.1148"/>
-<hole x="13.9954" y="17.5006" drill="4.1148"/>
-<hole x="13.9954" y="-17.5006" drill="4.1148"/>
-</package>
-</packages>
-<symbols>
-<symbol name="T1P2ST">
-<wire x1="-5.08" y1="5.08" x2="-2.54" y2="5.08" width="0.1524" layer="94"/>
-<wire x1="1.27" y1="5.715" x2="1.27" y2="-8.255" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="-7.62" x2="-5.08" y2="-7.62" width="0.1524" layer="94"/>
-<wire x1="-7.62" y1="5.715" x2="-7.62" y2="4.445" width="0.1524" layer="94"/>
-<wire x1="-7.62" y1="4.445" x2="-5.08" y2="4.445" width="0.1524" layer="94"/>
-<wire x1="-5.08" y1="4.445" x2="-5.08" y2="5.08" width="0.1524" layer="94"/>
-<wire x1="-5.08" y1="5.08" x2="-5.08" y2="5.715" width="0.1524" layer="94"/>
-<wire x1="-5.08" y1="5.715" x2="-7.62" y2="5.715" width="0.1524" layer="94"/>
-<wire x1="-8.255" y1="3.81" x2="-7.62" y2="3.81" width="0.1524" layer="94"/>
-<wire x1="-7.62" y1="3.81" x2="-5.08" y2="6.35" width="0.1524" layer="94"/>
-<wire x1="-5.08" y1="1.905" x2="-5.08" y2="3.4798" width="0.1524" layer="94"/>
-<wire x1="-4.1148" y1="1.905" x2="-4.1148" y2="3.4798" width="0.1524" layer="94"/>
-<wire x1="-5.08" y1="3.4798" x2="-5.3848" y2="2.54" width="0.1524" layer="94"/>
-<wire x1="-5.3848" y1="2.54" x2="-4.7498" y2="2.54" width="0.1524" layer="94"/>
-<wire x1="-4.1148" y1="3.4798" x2="-4.445" y2="2.54" width="0.1524" layer="94"/>
-<wire x1="-4.445" y1="2.54" x2="-3.7846" y2="2.54" width="0.1524" layer="94"/>
-<wire x1="-3.7846" y1="2.54" x2="-4.1148" y2="3.4798" width="0.1524" layer="94"/>
-<wire x1="-4.7498" y1="2.54" x2="-5.08" y2="3.4798" width="0.1524" layer="94"/>
-<wire x1="-7.62" y1="0.762" x2="-6.096" y2="0.762" width="0.1524" layer="94" curve="180"/>
-<wire x1="-8.128" y1="1.016" x2="-7.62" y2="1.016" width="0.1524" layer="94" curve="-180" cap="flat"/>
-<wire x1="-7.62" y1="0.762" x2="-7.62" y2="1.016" width="0.1524" layer="94"/>
-<wire x1="-6.096" y1="0.762" x2="-6.096" y2="2.032" width="0.1524" layer="94"/>
-<wire x1="-6.604" y1="1.524" x2="-6.096" y2="2.032" width="0.1524" layer="94" curve="-270"/>
-<wire x1="-5.842" y1="1.524" x2="-5.7284" y2="1.3402" width="0.1524" layer="94" curve="-116.562636" cap="flat"/>
-<wire x1="-6.604" y1="1.524" x2="-5.842" y2="1.524" width="0.1524" layer="94"/>
-<circle x="-3.302" y="-6.985" radius="0.127" width="0.3048" layer="94"/>
-<circle x="6.096" y="-6.985" radius="0.127" width="0.3048" layer="94"/>
-<circle x="6.096" y="0.635" radius="0.127" width="0.3048" layer="94"/>
-<text x="-2.54" y="6.35" size="1.778" layer="95">&gt;NAME</text>
-<text x="-2.54" y="-10.795" size="1.778" layer="96">&gt;VALUE</text>
-<text x="-3.683" y="-2.794" size="1.27" layer="94" rot="R90">PRI</text>
-<text x="6.985" y="1.905" size="1.27" layer="94" rot="R90">S2</text>
-<text x="6.985" y="-5.715" size="1.27" layer="94" rot="R90">S1</text>
-<rectangle x1="-2.794" y1="-7.62" x2="-0.254" y2="5.08" layer="94"/>
-<rectangle x1="2.794" y1="0" x2="5.334" y2="5.08" layer="94"/>
-<rectangle x1="2.794" y1="-7.62" x2="5.334" y2="-2.54" layer="94"/>
-<pin name="1" x="-10.16" y="5.08" visible="pad" length="short" direction="pas" swaplevel="1"/>
-<pin name="2" x="-10.16" y="-7.62" visible="pad" length="middle" direction="pas" swaplevel="1"/>
-<pin name="3" x="10.16" y="-7.62" visible="pad" length="middle" direction="pas" swaplevel="3" rot="R180"/>
-<pin name="4" x="10.16" y="-2.54" visible="pad" length="middle" direction="pas" swaplevel="3" rot="R180"/>
-<pin name="5" x="10.16" y="0" visible="pad" length="middle" direction="pas" swaplevel="2" rot="R180"/>
-<pin name="6" x="10.16" y="5.08" visible="pad" length="middle" direction="pas" swaplevel="2" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="PT04,5-2" prefix="TR" uservalue="yes">
-<description>&lt;b&gt;TRANSFORMER&lt;/b&gt;&lt;p&gt;
-1 primary winding, temp. protection fuse, 2 secondary windings/ mounting hole&lt;p&gt;
-BLOCK</description>
-<gates>
-<gate name="1" symbol="T1P2ST" x="-2.54" y="0"/>
-</gates>
-<devices>
-<device name="" package="PT04,5-2">
-<connects>
-<connect gate="1" pin="1" pad="1"/>
-<connect gate="1" pin="2" pad="2"/>
-<connect gate="1" pin="3" pad="3"/>
-<connect gate="1" pin="4" pad="4"/>
-<connect gate="1" pin="5" pad="5"/>
-<connect gate="1" pin="6" pad="6"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -17604,7 +17558,6 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <part name="X2" library="personal-parts" deviceset="3KLEMME" device=""/>
 <part name="IC2" library="linear" deviceset="78*" device="TV" technology="05"/>
 <part name="B1" library="rectifier" deviceset="RB1A" device="" value="rectifier"/>
-<part name="TR1" library="trafo" deviceset="PT04,5-2" device="" value="TRAFO 9V 556mA"/>
 <part name="K1" library="relay-omron-G5NB" deviceset="G5NB" device=""/>
 <part name="C1" library="rcl" deviceset="CPOL-EU" device="E5-8.5" value="10µF"/>
 <part name="C2" library="rcl" deviceset="CPOL-EU" device="E5-8.5" value="10µF"/>
@@ -17649,6 +17602,7 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <part name="EXT2-21-26" library="pinhead" deviceset="PINHD-2X3" device=""/>
 <part name="EXT2-1-4" library="pinhead" deviceset="PINHD-2X2" device=""/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
+<part name="TR1" library="personal-parts" deviceset="VC5,0-1" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -17662,8 +17616,7 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <instance part="PHASE" gate="G$1" x="45.72" y="180.34" rot="R180"/>
 <instance part="X2" gate="G$1" x="147.32" y="76.2"/>
 <instance part="IC2" gate="A1" x="157.48" y="185.42"/>
-<instance part="B1" gate="1" x="106.68" y="180.34"/>
-<instance part="TR1" gate="1" x="86.36" y="182.88"/>
+<instance part="B1" gate="1" x="106.68" y="180.34" rot="R180"/>
 <instance part="K1" gate="1" x="193.04" y="157.48" rot="R270"/>
 <instance part="K1" gate="U" x="287.02" y="165.1"/>
 <instance part="C1" gate="G$1" x="124.46" y="182.88"/>
@@ -17716,17 +17669,18 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <instance part="EXT2-21-26" gate="A" x="22.86" y="99.06"/>
 <instance part="EXT2-1-4" gate="A" x="25.4" y="83.82"/>
 <instance part="GND1" gate="1" x="10.16" y="91.44"/>
+<instance part="TR1" gate="1" x="86.36" y="182.88"/>
 </instances>
 <busses>
 </busses>
 <nets>
 <net name="PHASE" class="0">
 <segment>
-<pinref part="TR1" gate="1" pin="1"/>
 <wire x1="76.2" y1="182.88" x2="76.2" y2="187.96" width="0.1524" layer="91"/>
 <label x="71.628" y="183.642" size="1.778" layer="95"/>
 <pinref part="F2" gate="G$1" pin="2"/>
 <wire x1="68.58" y1="182.88" x2="76.2" y2="182.88" width="0.1524" layer="91"/>
+<pinref part="TR1" gate="1" pin="1"/>
 </segment>
 <segment>
 <pinref part="K8" gate="U" pin="2"/>
@@ -17757,38 +17711,19 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 </net>
 <net name="NULL" class="0">
 <segment>
-<pinref part="TR1" gate="1" pin="2"/>
 <wire x1="76.2" y1="177.8" x2="76.2" y2="175.26" width="0.1524" layer="91"/>
 <label x="71.12" y="175.26" size="1.778" layer="95"/>
 <pinref part="PHASE" gate="G$1" pin="1"/>
 <wire x1="76.2" y1="177.8" x2="53.34" y2="177.8" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$3" class="0">
-<segment>
-<pinref part="TR1" gate="1" pin="5"/>
-<wire x1="96.52" y1="182.88" x2="99.06" y2="182.88" width="0.1524" layer="91"/>
-<wire x1="99.06" y1="182.88" x2="99.06" y2="187.96" width="0.1524" layer="91"/>
-<pinref part="B1" gate="1" pin="AC1"/>
-<wire x1="99.06" y1="187.96" x2="106.68" y2="187.96" width="0.1524" layer="91"/>
-<wire x1="106.68" y1="187.96" x2="106.68" y2="185.42" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$4" class="0">
-<segment>
-<pinref part="TR1" gate="1" pin="4"/>
-<wire x1="96.52" y1="180.34" x2="99.06" y2="180.34" width="0.1524" layer="91"/>
-<wire x1="99.06" y1="180.34" x2="99.06" y2="172.72" width="0.1524" layer="91"/>
-<pinref part="B1" gate="1" pin="AC2"/>
-<wire x1="99.06" y1="172.72" x2="106.68" y2="172.72" width="0.1524" layer="91"/>
-<wire x1="106.68" y1="172.72" x2="106.68" y2="175.26" width="0.1524" layer="91"/>
+<pinref part="TR1" gate="1" pin="2"/>
 </segment>
 </net>
 <net name="N$5" class="0">
 <segment>
 <pinref part="B1" gate="1" pin="+"/>
-<wire x1="111.76" y1="180.34" x2="116.84" y2="180.34" width="0.1524" layer="91"/>
-<wire x1="116.84" y1="180.34" x2="116.84" y2="185.42" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="180.34" x2="101.6" y2="187.96" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="187.96" x2="116.84" y2="187.96" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="187.96" x2="116.84" y2="185.42" width="0.1524" layer="91"/>
 <pinref part="C1" gate="G$1" pin="+"/>
 <wire x1="116.84" y1="185.42" x2="124.46" y2="185.42" width="0.1524" layer="91"/>
 <pinref part="C3" gate="G$1" pin="1"/>
@@ -17831,9 +17766,9 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <net name="GND" class="0">
 <segment>
 <pinref part="B1" gate="1" pin="-"/>
-<wire x1="101.6" y1="180.34" x2="101.6" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="180.34" x2="111.76" y2="170.18" width="0.1524" layer="91"/>
 <pinref part="C1" gate="G$1" pin="-"/>
-<wire x1="101.6" y1="170.18" x2="124.46" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="170.18" x2="124.46" y2="170.18" width="0.1524" layer="91"/>
 <wire x1="124.46" y1="170.18" x2="124.46" y2="177.8" width="0.1524" layer="91"/>
 <pinref part="C3" gate="G$1" pin="2"/>
 <wire x1="124.46" y1="177.8" x2="139.7" y2="177.8" width="0.1524" layer="91"/>
@@ -18284,6 +18219,21 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <wire x1="53.848" y1="126.238" x2="53.34" y2="132.08" width="0.1524" layer="91"/>
 <pinref part="R3" gate="G$1" pin="2"/>
 <wire x1="53.34" y1="132.08" x2="48.26" y2="132.08" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$3" class="0">
+<segment>
+<pinref part="TR1" gate="1" pin="4"/>
+<pinref part="B1" gate="1" pin="AC2"/>
+<wire x1="96.52" y1="185.42" x2="106.68" y2="185.42" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<pinref part="TR1" gate="1" pin="3"/>
+<pinref part="B1" gate="1" pin="AC1"/>
+<wire x1="96.52" y1="177.8" x2="96.52" y2="175.26" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="175.26" x2="106.68" y2="175.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
