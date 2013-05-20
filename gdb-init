@@ -1,0 +1,4 @@
+target remote :3333
+monitor reset halt
+b main.c:123
+#b can.c:107
