@@ -9,6 +9,7 @@ OBJS+=syscalls.o
 OBJS+=can.o
 OBJS+=timer.o
 OBJS+=clock.o
+OBJS+=io_pwm.o
 
 
 #OBJS+=usb/usbd_cdc_vcp.o

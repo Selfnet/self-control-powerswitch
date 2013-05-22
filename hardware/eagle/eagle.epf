@@ -1,20 +1,19 @@
 [Eagle]
 Version="06 04 00"
-Platform="Windows"
+Platform="Linux"
 Serial="6E33A6CECA-LSR-WLM50EP"
 Globals="Globals"
 Desktop="Desktop"
 
 [Globals]
 AutoSaveProject=1
-UsedLibrary="personal-parts.lbr"
 
 [Win_1]
 Type="Control Panel"
-Loc="523 465 1351 864"
+Loc="294 137 893 536"
 State=2
 Number=0
 
 [Desktop]
-Screen="2560 1440"
+Screen="1920 1200"
 Window="Win_1"

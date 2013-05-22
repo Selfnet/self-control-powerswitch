@@ -23,6 +23,7 @@
 #include "io-helper.h" //dirks button+led func
 
 #include "timer.h"
+#include "io_pwm.h"
 
 #include <stdio.h>
 
@@ -33,7 +34,6 @@
 #include "usbd_cdc_core.h"
 #include "usbd_cdc_vcp.h"*/
 
-#include "led_pwm.h"
 #include "can.h"
 
 /* Private typedef -----------------------------------------------------------*/
@@ -75,38 +75,38 @@ void SysTickStop(void)
 
 void init_timer(void)
 {
-    /* TIM1 clock enable */
+    // TIM1 clock enable 
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1, ENABLE);
 
-    /* NVIC Configuration */
+    // NVIC Configuration 
     NVIC_InitTypeDef NVIC_InitStructure;
 
-    /* Enable the TIM1 global Interrupt */
+    // Enable the TIM1 global Interrupt 
     NVIC_InitStructure.NVIC_IRQChannel =  TIM1_UP_IRQn;
     NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
     NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&NVIC_InitStructure);
 
-    /* Compute the prescaler value 1x pro sek*/
-    uint16_t PrescalerValue = (uint16_t) (SystemCoreClock / 1000) - 1;
+    // Compute the prescaler value 
+    uint16_t PrescalerValue = (uint16_t) (SystemCoreClock / 1000000) - 1;
 
-    /* Time base configuration */
+    // Time base configuration 
     TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
-    TIM_TimeBaseStructure.TIM_Period = 10;
+    TIM_TimeBaseStructure.TIM_Period = 5;
     TIM_TimeBaseStructure.TIM_Prescaler = PrescalerValue;
     TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
     TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
 
     TIM_TimeBaseInit(TIM1, &TIM_TimeBaseStructure);
 
-    /* TIM enable counter */
+    // TIM enable counter 
     TIM_Cmd(TIM1, ENABLE);
 
-    /* TIM IT enable */
+    // TIM IT enable 
     TIM_ITConfig(TIM1, TIM_IT_Update, ENABLE);
 
-    /*Update Interupt (URS bit) Enable */
+    //Update Interupt (URS bit) Enable 
     //TIM_UpdateRequestConfig(TIM1, TIM_UpdateSource_Regular); 
 }
 
@@ -118,36 +118,35 @@ void init_timer(void)
 int main(void)
 {
     /* Button Init */
-    button_init(); // wird für pwm verwendet
+    button_init();
 
-    init_timer(); //TODO macht es noch kaputt
+    init_timer();
 
     /* LED Init */
     LED_init();
     LED_On(0);
 
-
     /* Setup STM32 system (clock, PLL and Flash configuration) */
     SystemInit();
 
     // initialize Light IO Pins
-    Light_init();
+    //Light_init();
+    Light_pwm_init();
 
     // initialize CAN-Bus and enable CAN Interrupts
     CAN_config();
 
     struct timer sec_timer;
-    timer_set(&sec_timer, TICKS_PER_SECOND); //1x pro sec wird gesynced
+    timer_set(&sec_timer, TICKS_PER_SECOND/10); //1x pro sec wird gesynced
     led_count = 0;
 
-    LED_On(0);
+    init_timer();
 
     LED_On(1);
     LED_On(2);
     LED_On(3);
-    
 
-    
+
     //Main loop, ohne ethernet gibts hir nix zu tun ;)
     while(1)
     {
@@ -166,72 +165,73 @@ int main(void)
         if(timer_expired(&sec_timer))
         {
             timer_reset(&sec_timer);
-            LED_Toggle(2);
-            LED_Toggle(0);
+            LED_Toggle(3);
 
-            //id++;
-            //if( id <= 5 )
-            //    Light_On(id, 1);
-            //else if( id < 10 )
-            //    Light_On(id-4, 2);
-
-            //Light_On(2, 2);
-
-//            if(led_count < 4200000000) //soll keinen ueberlauf geben
-//                led_count++;
-
-            /*if(led_count % 10 == 0) //send current color and led_count
+            int i;
+            for(i = 0 ; i < 8 ; i++ )
             {
-                CanTxMsg TxMessage;
-                TxMessage.IDE = CAN_ID_EXT;                                 //immer extended can frames
-                TxMessage.ExtId = CAN_EXT_ID;                               //default ID setzen
-                TxMessage.ExtId |= setSender( NODE_CAN_ID );
-                TxMessage.ExtId |= setType( CAN_PROTO_LED );
-                TxMessage.ExtId |= setRecipient( 0x20 );
-                TxMessage.RTR = CAN_RTR_Data;
+                // relays sollen nur alle 0.x sekunden geschaltet werden
+                if( (clock_time()-lights[i].last_changed)/TICKS_PER_SECOND <= 1 )
+                    continue;
 
-                TxMessage.DLC = 8; 
-                TxMessage.Data[0] = leds[0].color_mode << 4 | 1; //LedID and leds[id].color_mode;
-                TxMessage.Data[1] = 0xFE; // GETCOLORMODE 
+                int pwm = 0;
+                if(lights[i].state == 3)
+                {
+                    pwm = 2000;
+                    lights[i].state = 2;
+                    lights[i].last_changed = clock_time();
+                }
+                else if(lights[i].state == 2)
+                {
+                    pwm = 1000;
+                    lights[i].state = 1;
+                    lights[i].last_changed = clock_time();
+                }
+                else if(lights[i].state == 1)
+                {
+                    pwm = 1000;
+                    LED_Toggle(2);
+                }
 
-                TxMessage.Data[2] = leds[0].mode;
-                TxMessage.Data[3] = leds[0].r;
-                TxMessage.Data[4] = leds[0].g;
-                TxMessage.Data[5] = leds[0].b;
-
-                TxMessage.Data[6] = 0xFF;
-                TxMessage.Data[7] = led_count;
-                CAN_Send(&TxMessage);
+                switch(i)
+                {
+                    case 0:
+                        TIM3->CCR4 = pwm;
+                    break;
+                    case 1:
+                        TIM3->CCR2 = pwm;
+                    break;
+                    case 2:
+                        TIM3->CCR3 = pwm;
+                    break;
+                    case 3:
+                        TIM4->CCR4 = pwm;
+                    break;
+                    case 4:
+                        TIM4->CCR2 = pwm;
+                    break;
+                    case 5:
+                        TIM4->CCR3 = pwm;
+                    break;
+                    case 6:
+                        TIM4->CCR1 = pwm;
+                    break;
+                    case 7:
+                        TIM3->CCR1 = pwm;
+                    break;
+                }
             }
 
-            if(led_count == 30*60) //random fade nach 30min
-            {
-                leds[0].mode = 5;
-                leds[0].std_time = 50;
-                leds[0].change_r = (float)((rand()% 5+1))/leds[0].std_time;
-                leds[0].change_g = (float)((rand()% 5+1))/leds[0].std_time;
-                leds[0].change_b = (float)((rand()% 5+1))/leds[0].std_time;
-
-                leds[1].mode = 1;
-                leds[1].master = 0;
-
-                leds[2].mode = 1;
-                leds[2].master = 0;
-
-                leds[3].mode = 1;
-                leds[3].master = 0;
-            }
-            else if(led_count == 60*60) //fade to black nach 1h
-            {
-                leds[0].std_time = 5000;
-                leds[0].mode = 3;
-                leds[0].time = 0;
-                leds[0].target_r = 0;
-                leds[0].target_g = 0;
-                leds[0].change_b = 0;
-            }*/
+/*#define LIGHT_U2_1_PIN  GPIO_Pin_1 //PB1  EXT1-26   TIM3_CH4
+#define LIGHT_U2_2_PIN  GPIO_Pin_7 //PA7  EXT1-22   TIM3_CH2
+#define LIGHT_U3_1_PIN  GPIO_Pin_0 //PB0  EXT1-21   TIM3_CH3
+#define LIGHT_U4_1_PIN  GPIO_Pin_9 //PB9  EXT1-17   TIM4_CH4
+#define LIGHT_U5_1_PIN  GPIO_Pin_7 //PB7  EXT1-15   TIM4_CH2
+#define LIGHT_U5_2_PIN  GPIO_Pin_8 //PB8  EXT1-16   TIM4_CH3
+#define LIGHT_UX_1_PIN  GPIO_Pin_6 //PB6  EXT1-13   TIM4_CH1
+#define LIGHT_UX_2_PIN  GPIO_Pin_6 //PA6  EXT1-14   TIM3_CH1
+*/
         }
-
     }
 }
 

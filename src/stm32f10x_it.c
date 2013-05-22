@@ -206,7 +206,7 @@ void TIM1_UP_IRQHandler(void)
 
 /******************************************************************************/
 
-int id  = 1;
+int id  = 2000;
 
 /**
   * @brief  This function handles ExternalInterrupt 0 (Port[A-D] Pin0) Handler.
@@ -219,12 +219,6 @@ void EXTI0_IRQHandler(void) //Button1
     if(EXTI_GetITStatus(EXTI_Line0) != RESET)
     {
         LED_Toggle(0);
-
-        id++;
-        if( id <= 5 )
-            Light_On(id, 1);
-        else if( id < 10 )
-            Light_On(id-4, 2);
     }
 
     //we need to clear line pending bit manually

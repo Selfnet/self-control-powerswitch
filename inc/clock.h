@@ -75,7 +75,7 @@ clock_time_t clock_time(void);
  *
  * \hideinitializer
  */
-#define TICKS_PER_SECOND 10
+#define TICKS_PER_SECOND 1000
 
 #endif /* __CLOCK_H__ */
 

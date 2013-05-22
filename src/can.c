@@ -2,8 +2,8 @@
 #include "stm32f10x.h"
 
 #include "can.h"
-#include "led_pwm.h"
 #include "io-helper.h"
+#include "io_pwm.h"
 
 /**
   * @brief  Configures the CAN.
@@ -108,28 +108,7 @@ void CAN_Send(CanTxMsg *TxMessage)
 // SENDER0 | SENDER1 | EMPFAENGER0 | EMPFAENGER1 | TYPE | SEND-REQUEST | DATA0 - DATA7
 
 
-void send_color(CanRxMsg RxMessage, int id)
-{
-    CanTxMsg TxMessage;
-    TxMessage.IDE = CAN_ID_EXT;                                 //immer extended can frames
-    TxMessage.ExtId = CAN_EXT_ID;                               //default ID setzen
-    TxMessage.ExtId |= setSender( NODE_CAN_ID );
-    TxMessage.ExtId |= setType( CAN_PROTO_LIGHT );
-    TxMessage.ExtId |= setRecipient( getSender(RxMessage.ExtId) );
-    TxMessage.RTR = CAN_RTR_Data;
 
-    TxMessage.DLC = 6; 
-    TxMessage.Data[0] = (leds[id].color_mode << 4) |  1 << id; //LedID and leds[id].color_mode;
-
-    TxMessage.Data[1] = 0xFE; // GETCOLORMODE 
-
-    TxMessage.Data[2] = leds[id].mode;
-    TxMessage.Data[3] = leds[id].r;
-    TxMessage.Data[4] = leds[id].g;
-    TxMessage.Data[5] = leds[id].b;
-
-    CAN_Send(&TxMessage);
-}
 
 void send_pong(CanRxMsg RxMessage)
 {
@@ -175,11 +154,20 @@ void prozess_can_it(void)
             //SYNC
             else if( getTyp(RxMessage.ExtId) == CAN_PROTO_SYNC )
                 if(RxMessage.Data[0] == 0)
+                {
                     LED_Off(1);
+                    LED_Off(0);
+                }
                 else if(RxMessage.Data[0] == 1)
+                {
                     LED_On(1);
+                    LED_On(0);
+                }
                 else
+                {
                     LED_Toggle(1);
+                    LED_Toggle(0);
+                }
             //LED
             else if( getTyp(RxMessage.ExtId) == CAN_PROTO_LIGHT )
             {
@@ -199,12 +187,72 @@ void prozess_can_it(void)
                     //Data[0] = Raum
                     //Data[1] = Lampe
                     //Data[2] = an/aus
-                    if(RxMessage.Data[0] >= 2 && RxMessage.Data[0] <= 5 && RxMessage.Data[1] >= 1 && RxMessage.Data[1] <= 2) //liegen die werte im erlaubten bereich
+                    if(RxMessage.Data[0] >= 0 && RxMessage.Data[0] <= 5 && RxMessage.Data[1] >= 1 && RxMessage.Data[1] <= 2) //liegen die werte im erlaubten bereich
                     {
-                        if( RxMessage.Data[2] == 1) //turn led on
-                           Light_On( RxMessage.Data[0], RxMessage.Data[1]);
-                        else if( RxMessage.Data[2] == 0 ) //turn led on
-                            Light_Off( RxMessage.Data[0], RxMessage.Data[1]);
+                        int roomnr = RxMessage.Data[0];
+                        int lightnr = RxMessage.Data[1];
+                    
+                        //TODO lights[x].state = RxMessage.Data[2]*2 statt zwei ifs
+                        if( RxMessage.Data[2] == 1) //turn light on
+                        {
+                            if(roomnr == 2)
+                            {
+                                if( lightnr == 1)
+                                    lights[0].state = 3;
+                                else if( lightnr == 2)
+                                    lights[1].state = 3;
+                            }
+                            if(roomnr == 3)
+                                if( lightnr == 1)
+                                    lights[2].state = 3;
+                            if(roomnr == 4)
+                                if( lightnr == 1)
+                                    lights[3].state = 3;
+                            if(roomnr == 5)
+                            {
+                                if( lightnr == 1)
+                                    lights[4].state = 3;
+                                else if( lightnr == 2)
+                                    lights[5].state = 3;
+                            }
+                            if(roomnr == 0)
+                            {
+                                if( lightnr == 1)
+                                    lights[6].state = 3;
+                                else if( lightnr == 2)
+                                    lights[7].state = 3;
+                            }
+                        }
+                        else if( RxMessage.Data[2] == 0 ) //turn light off
+                        {
+                            if(roomnr == 2)
+                            {
+                                if( lightnr == 1)
+                                    lights[0].state = 0;
+                                else if( lightnr == 2)
+                                    lights[1].state = 0;
+                            }
+                            if(roomnr == 3)
+                                if( lightnr == 1)
+                                    lights[2].state = 0;
+                            if(roomnr == 4)
+                                if( lightnr == 1)
+                                    lights[3].state = 0;
+                            if(roomnr == 5)
+                            {
+                                if( lightnr == 1)
+                                    lights[4].state = 0;
+                                else if( lightnr == 2)
+                                    lights[5].state = 0;
+                            }
+                            if(roomnr == 0)
+                            {
+                                if( lightnr == 1)
+                                    lights[6].state = 0;
+                                else if( lightnr == 2)
+                                    lights[7].state = 0;
+                            }
+                        }
                     }
 
                 //set light (binary data)
