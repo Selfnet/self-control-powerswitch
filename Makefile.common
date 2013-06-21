@@ -52,5 +52,6 @@ CFLAGS+=$(COMMONFLAGS) -Wall $(INCLUDE)
 #Adust the following line to the type of MCU used and stdt lib components
 CFLAGS+=-D STM32F10X_MD -DUSE_STDPERIPH_DRIVER
 CFLAGS+=-D VECT_TAB_FLASH
+CFLAGS+=-std=c99
 
 

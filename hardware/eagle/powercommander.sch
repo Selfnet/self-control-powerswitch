@@ -17565,7 +17565,7 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <part name="IC2" library="linear" deviceset="78*" device="TV" technology="05"/>
 <part name="B1" library="rectifier" deviceset="RB1A" device="" value="rectifier"/>
 <part name="K1" library="relay-omron-G5NB" deviceset="G5NB" device=""/>
-<part name="C1" library="rcl" deviceset="CPOL-EU" device="E5-8.5" value="10µF"/>
+<part name="C1" library="rcl" deviceset="CPOL-EU" device="E5-8.5" value="2000µF"/>
 <part name="C2" library="rcl" deviceset="CPOL-EU" device="E5-8.5" value="10µF"/>
 <part name="C3" library="rcl" deviceset="C-EU" device="025-025X050" value="10nF"/>
 <part name="K2" library="relay-omron-G5NB" deviceset="G5NB" device=""/>
@@ -17683,7 +17683,7 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <instance part="R3" gate="G$1" x="50.8" y="66.04" rot="R180"/>
 <instance part="GND8" gate="1" x="50.8" y="55.88"/>
 <instance part="P+4" gate="1" x="187.96" y="154.94" rot="R270"/>
-<instance part="F2" gate="G$1" x="40.64" y="22.86"/>
+<instance part="F2" gate="G$1" x="43.18" y="22.86"/>
 <instance part="D1" gate="G$1" x="170.18" y="160.655"/>
 <instance part="D2" gate="G$1" x="170.18" y="147.955"/>
 <instance part="D3" gate="G$1" x="170.18" y="132.715"/>
@@ -17707,7 +17707,7 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <segment>
 <wire x1="50.8" y1="22.86" x2="50.8" y2="27.94" width="0.1524" layer="91"/>
 <pinref part="F2" gate="G$1" pin="2"/>
-<wire x1="45.72" y1="22.86" x2="50.8" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="22.86" x2="50.8" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="TR1" gate="1" pin="1"/>
 <label x="45.72" y="30.48" size="1.778" layer="95" rot="R180" xref="yes"/>
 <wire x1="50.8" y1="27.94" x2="50.8" y2="30.48" width="0.1524" layer="91" style="longdash"/>
@@ -18012,7 +18012,7 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <segment>
 <pinref part="F2" gate="G$1" pin="1"/>
 <pinref part="PHASE" gate="G$1" pin="2"/>
-<wire x1="35.56" y1="22.86" x2="33.02" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="22.86" x2="33.02" y2="22.86" width="0.1524" layer="91"/>
 <label x="20.32" y="22.86" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>

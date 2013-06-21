@@ -46,7 +46,6 @@ void CAN_config(void)
     CAN_InitStructure.CAN_RFLM = DISABLE;
     CAN_InitStructure.CAN_TXFP = DISABLE;
     CAN_InitStructure.CAN_Mode = CAN_Mode_Normal;
-    //CAN_InitStructure.CAN_Mode = CAN_Mode_LoopBack;
 
     /* CAN Baudrate = 1MBps*/
     //  CAN_InitStructure.CAN_SJW = CAN_SJW_1tq;
@@ -90,7 +89,6 @@ void CAN_config(void)
 
 void CAN_Send(CanTxMsg *TxMessage)
 {
-//CAN_TxStatus_NoMailBox
     if(CAN_Transmit(CAN1, TxMessage) == CAN_TxStatus_NoMailBox && can_puffer_cnt < 10)
         can_puffer[++can_puffer_cnt] = TxMessage;
 }
@@ -106,10 +104,6 @@ void CAN_Send(CanTxMsg *TxMessage)
 
 // ethernet bytes:
 // SENDER0 | SENDER1 | EMPFAENGER0 | EMPFAENGER1 | TYPE | SEND-REQUEST | DATA0 - DATA7
-
-
-
-
 void send_pong(CanRxMsg RxMessage)
 {
     //ping request
@@ -168,7 +162,7 @@ void prozess_can_it(void)
                     LED_Toggle(1);
                     LED_Toggle(0);
                 }
-            //LED
+            //Light
             else if( getTyp(RxMessage.ExtId) == CAN_PROTO_LIGHT )
             {
                 if(RxMessage.Data[1] == 0xFF) //get the current color
@@ -184,117 +178,15 @@ void prozess_can_it(void)
                 }
                 else //set light
                 {
-                    //Data[0] = Raum
-                    //Data[1] = Lampe
-                    //Data[2] = an/aus
-                    if(RxMessage.Data[0] >= 0 && RxMessage.Data[0] <= 5 && RxMessage.Data[1] >= 1 && RxMessage.Data[1] <= 2) //liegen die werte im erlaubten bereich
+                    //Data[0] = Relay  ( bit position bestimmt relay)
+                    //Data[1] = Status ( an/aus )
+                    if( 0 <= RxMessage.Data[0] && RxMessage.Data[0] <= 255 )
                     {
-                        int roomnr = RxMessage.Data[0];
-                        int lightnr = RxMessage.Data[1];
-                    
-                        //TODO lights[x].state = RxMessage.Data[2]*2 statt zwei ifs
-                        if( RxMessage.Data[2] == 1) //turn light on
-                        {
-                            if(roomnr == 2)
-                            {
-                                if( lightnr == 1)
-                                    lights[0].state = 3;
-                                else if( lightnr == 2)
-                                    lights[1].state = 3;
-                            }
-                            if(roomnr == 3)
-                                if( lightnr == 1)
-                                    lights[2].state = 3;
-                            if(roomnr == 4)
-                                if( lightnr == 1)
-                                    lights[3].state = 3;
-                            if(roomnr == 5)
-                            {
-                                if( lightnr == 1)
-                                    lights[4].state = 3;
-                                else if( lightnr == 2)
-                                    lights[5].state = 3;
-                            }
-                            if(roomnr == 0)
-                            {
-                                if( lightnr == 1)
-                                    lights[6].state = 3;
-                                else if( lightnr == 2)
-                                    lights[7].state = 3;
-                            }
-                        }
-                        else if( RxMessage.Data[2] == 0 ) //turn light off
-                        {
-                            if(roomnr == 2)
-                            {
-                                if( lightnr == 1)
-                                    lights[0].state = 0;
-                                else if( lightnr == 2)
-                                    lights[1].state = 0;
-                            }
-                            if(roomnr == 3)
-                                if( lightnr == 1)
-                                    lights[2].state = 0;
-                            if(roomnr == 4)
-                                if( lightnr == 1)
-                                    lights[3].state = 0;
-                            if(roomnr == 5)
-                            {
-                                if( lightnr == 1)
-                                    lights[4].state = 0;
-                                else if( lightnr == 2)
-                                    lights[5].state = 0;
-                            }
-                            if(roomnr == 0)
-                            {
-                                if( lightnr == 1)
-                                    lights[6].state = 0;
-                                else if( lightnr == 2)
-                                    lights[7].state = 0;
-                            }
-                        }
+                        for(int i = 0 ; i <= 7 ; i++)
+                            if( ((RxMessage.Data[0] >> i) & 1) == 1 )
+                                // schaltet lampe an oder aus, oder toggelt
+                                lights[ i ].state = RxMessage.Data[1] == CAN_PROTO_LIGHT_TOGGLE ? ( lights[ i ].state == 0 ? 3 : 0 ) : RxMessage.Data[1]*3;
                     }
-
-                //set light (binary data)
-                /*Data[0] = Raum:
-                                    0b0001 = U2
-                                    0b0010 = U3
-                                    0b0100 = U4
-                                    0b1000 = U5
-                Data[1] = Light:
-                                    0b01 = Light1
-                                    0b10 = Light2
-                Data[2] = On/Off
-                                    0b1  = On
-                                    0b0  = Off
-                */
-                /*
-                    if( RxMessage.Data[2] == 1 )
-                    {
-                    if(RxMessage.Data[0] & 0b0001 )
-                        if(RxMessage.Data[0] & 0b01 )
-                            Light_On(1,1);
-                        else if(RxMessage.Data[0] & 0b10 )
-                            Light_On(1,2);
-
-                    if( RxMessage.Data[0] & 0b0010 )
-                        if(RxMessage.Data[0] & 0b01 )
-                            Light_On(2,1);
-                        else if(RxMessage.Data[0] & 0b10 )
-                            Light_On(2,2);
-
-                    if( RxMessage.Data[0] & 0b0100 )
-                        if(RxMessage.Data[0] & 0b01 )
-                            Light_On(3,1);
-                        else if(RxMessage.Data[0] & 0b10 )
-                            Light_On(3,2);
-
-                    if( RxMessage.Data[0] & 0b1000 )
-                        if(RxMessage.Data[0] & 0b01 )
-                            Light_On(4,1);
-                        else if(RxMessage.Data[0] & 0b10 )
-                            Light_On(4,2);*/
-
                 }
             }
         } //end an mich | broadcast

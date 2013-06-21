@@ -42,6 +42,8 @@ void setTyp(uint32_t *ExtId , int recipient); */
 #define CAN_PROTO_LIGHT 0xD0
 #define CAN_PROTO_TEXT  0xD0
 
+#define CAN_PROTO_LIGHT_TOGGLE  0x8
+
 // ext id =  0b10 100  0*24
 #define CAN_EXT_ID 0x14000000
 
