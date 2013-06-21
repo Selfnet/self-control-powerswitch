@@ -6,44 +6,42 @@
 
 Light_State lights[8];
 
-//RGB_Led_State leds[4];
-/*
 void init_timer(void)
 {
-    // TIM1 clock enable
+    // TIM1 clock enable 
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1, ENABLE);
 
-    // NVIC Configuration
+    // NVIC Configuration 
     NVIC_InitTypeDef NVIC_InitStructure;
 
-    // Enable the TIM1 global Interrupt
+    // Enable the TIM1 global Interrupt 
     NVIC_InitStructure.NVIC_IRQChannel =  TIM1_UP_IRQn;
     NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
     NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&NVIC_InitStructure);
 
-    // Compute the prescaler value 1x pro sek
-    uint16_t PrescalerValue = (uint16_t) (SystemCoreClock / 1000) - 1;
+    // Compute the prescaler value 
+    uint16_t PrescalerValue = (uint16_t) (SystemCoreClock / 1000000) - 1;
 
-    // Time base configuration
+    // Time base configuration 
     TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
-    TIM_TimeBaseStructure.TIM_Period = 10;
+    TIM_TimeBaseStructure.TIM_Period = 5;
     TIM_TimeBaseStructure.TIM_Prescaler = PrescalerValue;
     TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
     TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
 
     TIM_TimeBaseInit(TIM1, &TIM_TimeBaseStructure);
 
-    // TIM enable counter
+    // TIM enable counter 
     TIM_Cmd(TIM1, ENABLE);
 
-    // TIM IT enable
+    // TIM IT enable 
     TIM_ITConfig(TIM1, TIM_IT_Update, ENABLE);
 
-    //Update Interupt (URS bit) Enable
+    //Update Interupt (URS bit) Enable 
     //TIM_UpdateRequestConfig(TIM1, TIM_UpdateSource_Regular); 
-}*/
+}
 
 
 void Light_pwm_init(void)
@@ -151,37 +149,8 @@ void Light_pwm_init(void)
     TIM_Cmd(TIM2, ENABLE);
     TIM_Cmd(TIM3, ENABLE);
     TIM_Cmd(TIM4, ENABLE);
-
-    // TIM1 Interrupt Config - fürs Farben setzen
-    init_timer();
-    
-    //lights[0].pwm = &TIM3->CCR4;
-    
 }
 
-
-// ***************************************************************************************************
-
-// set values between 0 and 2047
-void update_PWM(void)
-{
-    /* Set the Capture Compare Register value */
-    /*TIM2->CCR1 = (int)leds[2].cur_r;
-    TIM2->CCR4 = (int)leds[2].cur_g;
-    TIM2->CCR2 = (int)leds[2].cur_b;
-
-    TIM3->CCR4 = (int)leds[3].cur_r;
-    TIM2->CCR3 = (int)leds[3].cur_g;
-    TIM3->CCR3 = (int)leds[3].cur_b;
-
-    TIM4->CCR1 = (int)leds[1].cur_r;
-    TIM4->CCR4 = (int)leds[1].cur_g;
-    TIM4->CCR2 = (int)leds[1].cur_b;
-
-    TIM3->CCR2 = (int)leds[0].cur_r;
-    TIM4->CCR3 = (int)leds[0].cur_b;
-    TIM3->CCR1 = (int)leds[0].cur_g;*/
-}
 
 
 

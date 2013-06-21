@@ -22,23 +22,12 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h"
-extern void USB_OTGFS1_GlobalHandler(void);
 
 #include "io-helper.h"
-#include "led_pwm.h"
 #include "can.h"
 
 
 #include <string.h>
-
-
-//usb
-/*#include "usb_core.h"
-#include "usbd_core.h"
-#include "usbd_cdc_core.h"
-//send
-#include "usbd_cdc_vcp.h"*/
-
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -46,14 +35,6 @@ extern void USB_OTGFS1_GlobalHandler(void);
 /* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
-
-//usb
-/*extern USB_OTG_CORE_HANDLE                  USB_OTG_dev;
-extern uint32_t USBD_OTG_ISR_Handler        (USB_OTG_CORE_HANDLE *pdev);
-#ifdef USB_OTG_HS_DEDICATED_EP1_ENABLED 
-extern uint32_t USBD_OTG_EP1IN_ISR_Handler  (USB_OTG_CORE_HANDLE *pdev);
-extern uint32_t USBD_OTG_EP1OUT_ISR_Handler (USB_OTG_CORE_HANDLE *pdev);
-#endif*/
 
 /******************************************************************************/
 /*            Cortex-M3 Processor Exceptions Handlers                         */
@@ -156,36 +137,7 @@ void SysTick_Handler(void)
 {
 }
 
-
 /******************************************************************************/
-/******************************************************************************/
-
-/**
-  * @brief  This function handles EXTI15_10_IRQ Handler.
-  * @param  None
-  * @retval None
-  */
-/*void OTG_FS_WKUP_IRQHandler(void) //fuer usb
-{
-    if(USB_OTG_dev.cfg.low_power)
-    {
-        *(uint32_t *)(0xE000ED10) &= 0xFFFFFFF9 ; 
-        SystemInit();
-        USB_OTG_UngateClock(&USB_OTG_dev);
-    }
-    EXTI_ClearITPendingBit(EXTI_Line18);
-}*/
-
-/**
-  * @brief  This function handles OTG_HS Handler.
-  * @param  None
-  * @retval None
-  */
-/*void OTG_FS_IRQHandler(void) //fuer usb
-{
-    USBD_OTG_ISR_Handler (&USB_OTG_dev);
-}*/
-
 
 /*******************************************************************************
 * Function Name  : TIM1_IRQHandler
@@ -225,14 +177,9 @@ void EXTI0_IRQHandler(void) //Button1
     EXTI_ClearITPendingBit(EXTI_Line0);
 }
 
-
-
 // *** CAN Interrupt ***
 void CAN1_RX0_IRQHandler(void)
 {
     prozess_can_it();
-    //CAN_ClearFlag(CAN1, CAN_FLAG_FMP0);
-    //CAN_ITConfig(CAN1, CAN_IT_FMP0, DISABLE);
 }
 
-/******************* (C) COPYRIGHT 2009 STMicroelectronics *****END OF FILE****/

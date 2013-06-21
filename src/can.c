@@ -93,17 +93,6 @@ void CAN_Send(CanTxMsg *TxMessage)
         can_puffer[++can_puffer_cnt] = TxMessage;
 }
 
-
-
-// *** erklärung zu can vars ***
-//Sender        = RxMessage.ExtId & 0b00000111111110000000000000000 (8Bit)
-//Empfaenger    = RxMessage.ExtId & 0b00000000000001111111100000000 (8Bit)
-//Type          = RxMessage.ExtId & 0b00000000000000000000011111111 (8Bit)
-//ID-Type       = RxMessage.IDE (CAN_Id_Standard or CAN_Id_Extended) DEFAULT=1 (immer extended)
-//RTR           = RxMessage.RTR: immer 1 (nie daten anfragen)
-
-// ethernet bytes:
-// SENDER0 | SENDER1 | EMPFAENGER0 | EMPFAENGER1 | TYPE | SEND-REQUEST | DATA0 - DATA7
 void send_pong(CanRxMsg RxMessage)
 {
     //ping request
@@ -127,6 +116,24 @@ void send_pong(CanRxMsg RxMessage)
         CAN_Send(&TxMessage);
     }
 }
+
+void send_state(CanRxMsg RxMessage)
+{
+    CanTxMsg TxMessage;
+    TxMessage.IDE = CAN_ID_EXT;                                 //immer extended can frames
+    TxMessage.ExtId = CAN_EXT_ID;                               //default ID setzen
+    TxMessage.ExtId |= setSender( NODE_CAN_ID );
+    TxMessage.ExtId |= setType( CAN_PROTO_LIGHT );
+    TxMessage.ExtId |= setRecipient( getSender(RxMessage.ExtId) );
+    TxMessage.RTR = CAN_RTR_Data;
+
+    TxMessage.DLC = 8;
+    //state of all light
+    for(int i = 0 ; i < TxMessage.DLC ; i++)
+        TxMessage.Data[i] = lights[i].state;
+    CAN_Send(&TxMessage);
+}
+
 
 void prozess_can_it(void)
 {
@@ -165,16 +172,9 @@ void prozess_can_it(void)
             //Light
             else if( getTyp(RxMessage.ExtId) == CAN_PROTO_LIGHT )
             {
-                if(RxMessage.Data[1] == 0xFF) //get the current color
+                if(RxMessage.Data[1] == 0xFF) //get the current state of the lights
                 {
-/*                    if( RxMessage.Data[0] & 0b00000001 )
-                        send_color(RxMessage, 0);
-                    if( RxMessage.Data[0] & 0b00000010 )
-                        send_color(RxMessage, 1);
-                    if( RxMessage.Data[0] & 0b00000100 )
-                        send_color(RxMessage, 2);
-                    if( RxMessage.Data[0] & 0b00001000 )
-                        //send_state(RxMessage, 3);*/
+                    send_state(RxMessage);
                 }
                 else //set light
                 {

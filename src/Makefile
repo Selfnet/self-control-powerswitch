@@ -11,15 +11,6 @@ OBJS+=timer.o
 OBJS+=clock.o
 OBJS+=io_pwm.o
 
-
-#OBJS+=usb/usbd_cdc_vcp.o
-#OBJS+=usb/usbd_desc.o
-#OBJS+=usb/usbd_usr.o
-#OBJS+=usb/usb_bsp.o
-
-
-#OBJS+=led_pwm.o
-
 all: src
 
 src: app.a

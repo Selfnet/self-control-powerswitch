@@ -15,14 +15,6 @@ void CAN_Send(CanTxMsg *TxMessage);
 CanTxMsg* can_puffer[10];
 char can_puffer_cnt;
 
-/*int getSender(uint32_t ExtId);
-int getRecipient(uint32_t ExtId);
-int getTyp(uint32_t ExtId);
-void setSender(uint32_t *ExtId , int recipient);
-void setRecipient(uint32_t *ExtId , int recipient);
-void setTyp(uint32_t *ExtId , int recipient); */
-
-
 
 #define getSender(ExtId)    ( ( (ExtId)     & 0xff ) )
 #define getRecipient(ExtId) ( ( (ExtId>>8 ) & 0xff ) )
@@ -40,7 +32,6 @@ void setTyp(uint32_t *ExtId , int recipient); */
 #define CAN_PROTO_PING  0x08
 #define CAN_PROTO_PONG  0x09
 #define CAN_PROTO_LIGHT 0xD0
-#define CAN_PROTO_TEXT  0xD0
 
 #define CAN_PROTO_LIGHT_TOGGLE  0x8
 

@@ -33,41 +33,6 @@
 #define LED3_GPIO_PORT  GPIOA
 #define LED3_GPIO_CLK   RCC_APB2Periph_GPIOA
 
-/* we are using pwm now
-//light
-#define LIGHT_U2_1_PIN  GPIO_Pin_1 //PB1  EXT1-26   TIM3_CH4
-#define LIGHT_U2_1_PORT GPIOB
-#define LIGHT_U2_1_CLK  RCC_APB2Periph_GPIOB
-
-#define LIGHT_U2_2_PIN  GPIO_Pin_7 //PA7  EXT1-22   TIM3_CH2
-#define LIGHT_U2_2_PORT GPIOA
-#define LIGHT_U2_2_CLK  RCC_APB2Periph_GPIOA
-
-#define LIGHT_U3_1_PIN  GPIO_Pin_0 //PB0  EXT1-21   TIM3_CH3
-#define LIGHT_U3_1_PORT GPIOB
-#define LIGHT_U3_1_CLK  RCC_APB2Periph_GPIOB
-
-#define LIGHT_U4_1_PIN  GPIO_Pin_9 //PB9  EXT1-17   TIM4_CH4
-#define LIGHT_U4_1_PORT GPIOB
-#define LIGHT_U4_1_CLK  RCC_APB2Periph_GPIOB
-
-#define LIGHT_U5_1_PIN  GPIO_Pin_7 //PB7  EXT1-15   TIM4_CH2
-#define LIGHT_U5_1_PORT GPIOB
-#define LIGHT_U5_1_CLK  RCC_APB2Periph_GPIOB
-
-#define LIGHT_U5_2_PIN  GPIO_Pin_8 //PB8  EXT1-16   TIM4_CH3
-#define LIGHT_U5_2_PORT GPIOB
-#define LIGHT_U5_2_CLK  RCC_APB2Periph_GPIOB
-
-#define LIGHT_UX_1_PIN  GPIO_Pin_6 //PB6  EXT1-13   TIM4_CH1
-#define LIGHT_UX_1_PORT GPIOB
-#define LIGHT_UX_1_CLK  RCC_APB2Periph_GPIOB
-
-#define LIGHT_UX_2_PIN  GPIO_Pin_6 //PA6  EXT1-14   TIM3_CH1
-#define LIGHT_UX_2_PORT GPIOA
-#define LIGHT_UX_2_CLK  RCC_APB2Periph_GPIOA
-*/
-
 //Buttons
 void button_init(void);
 uint32_t Button_GetState(uint32_t);
