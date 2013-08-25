@@ -93,6 +93,36 @@ void CAN_Send(CanTxMsg *TxMessage)
         can_puffer[++can_puffer_cnt] = TxMessage;
 }
 
+void send_led(uint32_t onoff){
+    CanTxMsg TxMessage;
+    TxMessage.IDE = CAN_ID_EXT;                                 //immer extended can frames
+    TxMessage.ExtId = CAN_EXT_ID;                               //default ID setzen
+    TxMessage.ExtId |= setSender( NODE_CAN_ID );
+    TxMessage.ExtId |= setType( CAN_PROTO_PONG );
+    TxMessage.ExtId |= setRecipient( LED_CAN_ID );
+    TxMessage.RTR = CAN_RTR_Data;                               // daten senden
+    
+    if(onoff){
+        TxMessage.DLC = 4;
+        TxMessage.Data[0] = 0b00001111; // All Leds RGB mode
+        TxMessage.Data[1] = 0x05; //Sollte auto fade mode sein
+        TxMessage.Data[2] = 0x00;
+        TxMessage.Data[3] = 50;
+    }
+    else{
+        TxMessage.DLC = 7;
+        TxMessage.Data[0] = 0b00001111; // All Leds RGB mode
+        TxMessage.Data[1] = 0x02; // ausschalten, alle farben auf 0
+        TxMessage.Data[2] = 0x00;
+        TxMessage.Data[3] = 0x00;
+        TxMessage.Data[4] = 0x00;
+        TxMessage.Data[5] = 0x00;
+        TxMessage.Data[6] = 0x00;
+    }
+    
+    CAN_Send(&TxMessage);
+}
+
 void send_pong(CanRxMsg RxMessage)
 {
     //ping request
@@ -105,7 +135,7 @@ void send_pong(CanRxMsg RxMessage)
         TxMessage.ExtId |= setType( CAN_PROTO_PONG );
         TxMessage.ExtId |= setRecipient( getSender(RxMessage.ExtId) );
         TxMessage.RTR = CAN_RTR_Data;                               // daten senden
-
+        
         // alle empfangen daten zurueckschicken
         TxMessage.DLC = RxMessage.DLC;
         int i;
@@ -150,8 +180,10 @@ void prozess_can_it(void)
         if( getRecipient(RxMessage.ExtId) == NODE_CAN_ID || getRecipient(RxMessage.ExtId) == NODE_CAN_BROADCAST )
         {
             //PING
-            if( getTyp(RxMessage.ExtId) == CAN_PROTO_PING )
+            if( getTyp(RxMessage.ExtId) == CAN_PROTO_PING ){
+                LED_Toggle(2);
                 send_pong(RxMessage);
+                }
             //SYNC
             else if( getTyp(RxMessage.ExtId) == CAN_PROTO_SYNC )
                 if(RxMessage.Data[0] == 0)

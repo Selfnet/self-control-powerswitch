@@ -10,6 +10,7 @@ OBJS+=can.o
 OBJS+=timer.o
 OBJS+=clock.o
 OBJS+=io_pwm.o
+OBJS+=uart.o
 
 all: src
 

@@ -2,7 +2,7 @@
 #ifndef __CAN_H__
 #define __CAN_H__
 
-#define CAN_ID 0x11
+#define CAN_ID 0x80
 
 #include "stm32f10x.h"
 
@@ -23,6 +23,9 @@ char can_puffer_cnt;
 #define setSender(X)        ( ( (X)         & 0xff ) )
 #define setRecipient(X)     ( ( (X<<8)      & 0xff00 ) )
 #define setType(X)          ( ( (X<<16)     & 0xff0000 ) )
+
+// ID of LED-Controller
+#define LED_CAN_ID 0x40
 
 //NODE_CAN_ID = 64 = 0x40 = 0b1000000
 #define NODE_CAN_ID 0x80

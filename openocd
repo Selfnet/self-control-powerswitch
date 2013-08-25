@@ -1,0 +1,2 @@
+#!/bin/sh
+exec ../OpenOCD/src/openocd -s ../OpenOCD/tcl/ $*
