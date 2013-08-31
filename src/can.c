@@ -101,9 +101,41 @@ void CAN_config(void)
 
 void CAN_Send(CanTxMsg *TxMessage)
 {
-    ;
     if(CAN_Transmit(CAN1, TxMessage) == CAN_TxStatus_NoMailBox && can_puffer_cnt < 10)
         can_puffer[++can_puffer_cnt] = TxMessage;
+}
+
+void send_enocean(uint8_t* pui8EnoceanData){
+    static CanTxMsg TxMessage, TxMessage2;
+    uint32_t ui32i;
+    
+    TxMessage.IDE = CAN_ID_EXT;                                 //immer extended can frames
+    TxMessage.ExtId = CAN_EXT_ID;                               //default ID setzen
+    TxMessage.ExtId |= setSender( NODE_CAN_ID );
+    TxMessage.ExtId |= setType( CAN_PROTO_ENOCEAN );
+    TxMessage.ExtId |= setRecipient( NODE_CAN_BROADCAST );
+    TxMessage.RTR = CAN_RTR_Data;                               // daten senden
+    TxMessage.DLC = 8;
+    TxMessage.Data[0] = 0; // first half of enocean data
+    
+/*    TxMessage2.IDE = CAN_ID_EXT;                                 //immer extended can frames*/
+/*    TxMessage2.ExtId = CAN_EXT_ID;                               //default ID setzen*/
+/*    TxMessage2.ExtId |= setSender( NODE_CAN_ID );*/
+/*    TxMessage2.ExtId |= setType( CAN_PROTO_ENOCEAN );*/
+/*    TxMessage2.ExtId |= setRecipient( NODE_CAN_BROADCAST );*/
+/*    TxMessage2.RTR = CAN_RTR_Data;                               // daten senden*/
+/*    TxMessage2.DLC = 8;*/
+/*    TxMessage2.Data[0] = 1; // second half of enocean data*/
+/*    */
+/*    for(ui32i=0;ui32i<7;ui32i++){*/
+/*        TxMessage.Data[ui32i+1] = pui8EnoceanData[ui32i];*/
+/*    }*/
+    CAN_Send(&TxMessage);
+/*    */
+/*    for(ui32i=0;ui32i<7;ui32i++){*/
+/*        TxMessage2.Data[ui32i+1] = pui8EnoceanData[ui32i+7];*/
+/*    }*/
+/*    CAN_Send(&TxMessage2);*/
 }
 
 void send_led(uint32_t onoff){

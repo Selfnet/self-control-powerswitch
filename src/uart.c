@@ -11,6 +11,7 @@
 
 #include "uart.h"
 #include "io-helper.h"
+#include "can.h"
 
 uint32_t ui32UartRxBufPos = 0;
 uint32_t ui32EltakoSyncPending = 0;
@@ -19,8 +20,8 @@ uint32_t ui32EltakoCount = 0;
 uint32_t ui32EltakoFrameReady = 0;
 uint32_t ui32i = 0;
 uint8_t ui8EltakoByte = 0;
-uint8_t pui8EltakoBuf[10] = {0};
-uint8_t pui8EltakoFrame[9] = {0};    
+uint8_t pui8EltakoBuf[16] = {0};
+uint8_t pui8EltakoFrame[16] = {0};    
 
 
 
@@ -71,6 +72,9 @@ void uart_init(void){
 
   /* Enable the USART1 */
   USART_Cmd(USART1, ENABLE);
+  
+  
+  
 }
   
 
@@ -92,14 +96,26 @@ void USART1_IRQHandler(void)
     }
     /* Read one byte from the receive data register */
     ui8EltakoByte = USART_ReceiveData(USART1);
+    send_enocean(pui8EltakoBuf);
+    pui8EltakoBuf[ui32EltakoCount] = ui8EltakoByte;
+    ui32EltakoCount++;
+    if(ui32EltakoCount>6){
+        ui32EltakoCount = 0;
+        LED_On(2);
+        //send_enocean(pui8EltakoBuf);
+    }
+    
+    //LED_Toggle(2);
     
     if(ui8EltakoByte == 0xA5){
         ui32EltakoSyncPending = 1;
+        //LED_On(2);
     }
     else if(ui8EltakoByte == 0x5A && ui32EltakoSyncPending == 1){
         ui32EltakoSynced = 1;
         ui32EltakoCount = 0;
         ui32EltakoSyncPending = 0;
+        //LED_On(2);
     }
     else{
         ui32EltakoSyncPending = 0;

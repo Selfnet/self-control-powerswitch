@@ -11,6 +11,7 @@ void CAN_config(void);
 void prozess_can_it(void);
 
 void CAN_Send(CanTxMsg *TxMessage);
+void send_enocean(uint8_t* pui8EnoceanData);
 
 CanTxMsg* can_puffer[10];
 char can_puffer_cnt;
@@ -35,6 +36,7 @@ char can_puffer_cnt;
 #define CAN_PROTO_PING  0x08
 #define CAN_PROTO_PONG  0x09
 #define CAN_PROTO_LIGHT 0xD0
+#define CAN_PROTO_ENOCEAN 0xD8
 
 #define CAN_PROTO_LIGHT_TOGGLE  0x8
 

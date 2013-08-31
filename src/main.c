@@ -41,20 +41,6 @@ void SysTickStop(void)
     SysTick->CTRL = 0;
 }
 
-
-void eltakoAnalyzeFrame(uint8_t* puiFrame){
-    static uint32_t ledState = 0;
-    if(ledState == 0){
-        ledState = 1;
-        //LED_On(2);
-    }
-    else{
-        ledState = 0;
-        //LED_Off(2);
-    }
-}
-
-
 /**
 * @brief  Main program.
 * @param  None
@@ -65,7 +51,7 @@ int main(void)
 
     uint8_t ui8EltakoOrg = 0;
     uint32_t ui32EltakoId = 0;
-    uint8_t pui8EltakoData[9] = {0};
+    uint8_t pui8EltakoData[16] = {0};
     uint8_t ui8EltakoSwitchPos = 0;
     uint32_t ui32i;
     uint32_t ui32ButtonStates[4] = {0};
@@ -122,9 +108,11 @@ int main(void)
         if(ui32EltakoFrameReady){
             ui8EltakoOrg = pui8EltakoFrame[1];
             ui32EltakoId = *((uint32_t*)&pui8EltakoFrame[6]);
-            for(ui32i=2;ui32i<6;ui32i++)
-                pui8EltakoData[ui32i-2] = pui8EltakoFrame[ui32i];
+            for(ui32i=0;ui32i<16;ui32i++)
+                pui8EltakoData[ui32i] = pui8EltakoFrame[ui32i];
             ui32EltakoFrameReady = 0;
+            
+            //send_enocean(pui8EltakoData);
             
             if(ui8EltakoOrg == 0x05){
                 ui8EltakoSwitchPos = pui8EltakoData[0]>>4;
@@ -224,7 +212,7 @@ int main(void)
         {
             timer_reset(&sec_timer);
             
-/*            send_pong_simple();*/
+            send_led(0);
 
             int i;
             for(i = 0 ; i < 8 ; i++ )
