@@ -18,7 +18,7 @@ void CAN_config(void)
 
     // GPIO clock enable 
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD, ENABLE);
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
 
     // Configure CAN pin: RX 
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11;
@@ -59,7 +59,19 @@ void CAN_config(void)
     CAN_InitStructure.CAN_BS1=CAN_BS1_2tq;
     CAN_InitStructure.CAN_BS2=CAN_BS2_3tq;
     CAN_InitStructure.CAN_Prescaler=48;
-    CAN_Init(CAN1, &CAN_InitStructure);
+    if(CAN_Init(CAN1, &CAN_InitStructure) == CAN_InitStatus_Success){
+/*        LED_On(1);*/
+/*        LED_On(0);*/
+    }
+    else{
+/*        LED_Off(1);*/
+/*        LED_Off(0);*/
+    }
+    
+/*    send_pong_simple();*/
+/*    send_pong_simple();*/
+/*    send_pong_simple();*/
+        
 
     // CAN filter init 
     CAN_FilterInitStructure.CAN_FilterNumber = 0;
@@ -89,12 +101,13 @@ void CAN_config(void)
 
 void CAN_Send(CanTxMsg *TxMessage)
 {
+    ;
     if(CAN_Transmit(CAN1, TxMessage) == CAN_TxStatus_NoMailBox && can_puffer_cnt < 10)
         can_puffer[++can_puffer_cnt] = TxMessage;
 }
 
 void send_led(uint32_t onoff){
-    CanTxMsg TxMessage;
+    static CanTxMsg TxMessage;
     TxMessage.IDE = CAN_ID_EXT;                                 //immer extended can frames
     TxMessage.ExtId = CAN_EXT_ID;                               //default ID setzen
     TxMessage.ExtId |= setSender( NODE_CAN_ID );
@@ -119,8 +132,8 @@ void send_led(uint32_t onoff){
         TxMessage.Data[5] = 0x00;
         TxMessage.Data[6] = 0x00;
     }
-    
     CAN_Send(&TxMessage);
+    //CAN_Transmit(CAN1, &TxMessage);
 }
 
 void send_pong(CanRxMsg RxMessage)
@@ -185,22 +198,26 @@ void prozess_can_it(void)
                 send_pong(RxMessage);
                 }
             //SYNC
-            else if( getTyp(RxMessage.ExtId) == CAN_PROTO_SYNC )
+            else if( getTyp(RxMessage.ExtId) == CAN_PROTO_SYNC ){
+/*                send_led(0);*/
                 if(RxMessage.Data[0] == 0)
                 {
                     LED_Off(1);
                     LED_Off(0);
+                    send_led(0);
                 }
                 else if(RxMessage.Data[0] == 1)
                 {
                     LED_On(1);
                     LED_On(0);
+                    send_led(1);
                 }
                 else
                 {
                     LED_Toggle(1);
                     LED_Toggle(0);
                 }
+            }
             //Light
             else if( getTyp(RxMessage.ExtId) == CAN_PROTO_LIGHT )
             {

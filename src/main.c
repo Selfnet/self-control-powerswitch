@@ -88,7 +88,7 @@ int main(void)
 
     // initialize CAN-Bus and enable CAN Interrupts
     CAN_config();
-    
+    //send_led(0);
     // initailize UART1 and enable its interrupts
     uart_init();
 
@@ -128,18 +128,18 @@ int main(void)
             
             if(ui8EltakoOrg == 0x05){
                 ui8EltakoSwitchPos = pui8EltakoData[0]>>4;
-                
-                // links unten
+                //send_led(0);
+                // links unten (U2)
                 if(ui8EltakoSwitchPos == 0b00000001){
                     ui32ButtonStates[0]++;
                     if(ui32ButtonStates[0]>3)
                         ui32ButtonStates[0] = 0;
-                        send_led(0);
+                        //send_led(0);
                         
                     if(!ui32ButtonStates[0]){
                         lights[7].state = 0;
                         lights[6].state = 0;
-                        send_led(0);
+                        //send_led(0);
                     }
                     else if(ui32ButtonStates[0]==1){
                         lights[7].state = 0;
@@ -152,13 +152,13 @@ int main(void)
                         send_led(0);
                     }
                     else if(ui32ButtonStates[0]==3){
-                        lights[7].state = 0;
+                        lights[7].state = 3;
                         lights[6].state = 0;
-                        send_led(1);
+                        //send_led(1);
                     }
                     LED_On(2);
                 }
-                // links oben
+                // links oben (U3)
                 else if(ui8EltakoSwitchPos == 0b00000011){
                     ui32ButtonStates[1]++;
                     if(ui32ButtonStates[1]>1)
@@ -172,7 +172,7 @@ int main(void)
                     }
                     LED_On(2);
                 }
-                // rechts unten
+                // rechts unten (U4)
                 else if(ui8EltakoSwitchPos == 0b00000101){
                     ui32ButtonStates[2]++;
                     if(ui32ButtonStates[2]>1)
@@ -186,10 +186,10 @@ int main(void)
                     }
                     LED_On(2);
                 }
-                // rechts oben
+                // rechts oben (U5)
                 else if(ui8EltakoSwitchPos == 0b00000111){
                     ui32ButtonStates[3]++;
-                    if(ui32ButtonStates[3]>2)
+                    if(ui32ButtonStates[3]>3)
                         ui32ButtonStates[3] = 0;
                         
                     if(!ui32ButtonStates[3]){
@@ -203,6 +203,10 @@ int main(void)
                     else if(ui32ButtonStates[3]==2){
                         lights[3].state = 3;
                         lights[4].state = 3;
+                    }
+                    else if(ui32ButtonStates[3]==3){
+                        lights[3].state = 3;
+                        lights[4].state = 0;
                     }
                     LED_On(2);
                 }
@@ -219,6 +223,8 @@ int main(void)
         if(timer_expired(&sec_timer))
         {
             timer_reset(&sec_timer);
+            
+/*            send_pong_simple();*/
 
             int i;
             for(i = 0 ; i < 8 ; i++ )
